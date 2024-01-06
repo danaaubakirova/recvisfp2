@@ -1,0 +1,106 @@
+Dataset: waterbirds
+Algorithm: groupDRO
+Root dir: data
+Split scheme: official
+Dataset kwargs: {}
+Download: True
+Frac: 1.0
+Version: None
+Unlabeled split: None
+Unlabeled version: None
+Use unlabeled y: False
+Loader kwargs: {'num_workers': 4, 'pin_memory': True}
+Unlabeled loader kwargs: {'num_workers': 8, 'pin_memory': True}
+Train loader: group
+Uniform over groups: True
+Distinct groups: True
+N groups per batch: 4
+Unlabeled n groups per batch: None
+Batch size: 64
+Unlabeled batch size: None
+Eval loader: standard
+Gradient accumulation steps: 1
+Subsample: True
+Uniform over classes: False
+Add num: 10
+Add start: 140
+Add interval: 10
+Uniform after subsample: False
+Uniform add: False
+Subsample alpha: 0.5
+Subsample ref: keep_in_class
+Subsample cap: -1
+Subsample cap steps: []
+Subsample cap milestones: []
+Model: dino
+Model kwargs: {'pretrained': True}
+Pretrained model path: None
+Load featurizer only: False
+Local norm: none
+Teacher model path: None
+Transform: image_resize_and_center_crop
+Additional train transform: weak
+Target resolution: (224, 224)
+Resize scale: 1.1428571428571428
+Max token length: None
+Randaugment n: None
+Transform warmup only: None
+Loss function: cross_entropy
+Loss kwargs: {}
+Groupby fields: ['background', 'y']
+Group dro step size: 0.01
+Algo log metric: accuracy
+Process pseudolabels function: None
+Val metric: acc_wg
+Val metric decreasing: False
+N epochs: 300
+Optimizer: SGD
+Lr: 0.01
+Weight decay: 0.01
+Max grad norm: None
+Optimizer kwargs: {'momentum': 0.9}
+Reinit optim: None
+Scheduler: MultiStepLR
+Scheduler kwargs: {'verbose': True, 'gamma': 0.1}
+Scheduler metric split: val
+Scheduler metric name: None
+Scheduler multistep milestones: [140]
+Scheduler multistep gamma: 0.01
+Process outputs function: multiclass_logits_to_pred
+Evaluate all splits: True
+Eval splits: []
+Eval only: False
+Eval epoch: None
+Device: cuda
+Seed: 0
+Log dir: ./logs/waterbirds_groupDRO_lr1e-02_wd1e-02_uniform_subsample_add10-from140-every10_weak_bs64_seed0
+Log every: 50
+Save step: None
+Save best: True
+Save last: True
+Save pred: True
+No group logging: False
+Progress bar: False
+Resume: False
+Use wandb: True
+Wandb api key path: None
+Wandb kwargs: {}
+Use data parallel: False
+Logger: <utils.Logger object at 0x7f5a512eff10>
+Add milestones: [140 150 160 170 180 190 200 210 220 230 240 250 260 270 280 290]
+Traceback (most recent call last):
+  File "/bigstorage/dana/PDE/run_expt.py", line 435, in <module>
+    main(config)
+  File "/bigstorage/dana/PDE/run_expt.py", line 266, in main
+    datasets[split]['loader'] = get_train_loader(
+  File "/bigstorage/dana/PDE/utils.py", line 521, in get_train_loader
+    group_ids = grouper.metadata_to_group(dataset.metadata_array)
+AttributeError: 'Subset' object has no attribute 'metadata_array'
+Traceback (most recent call last):
+  File "/bigstorage/dana/PDE/run_expt.py", line 435, in <module>
+    main(config)
+  File "/bigstorage/dana/PDE/run_expt.py", line 266, in main
+    datasets[split]['loader'] = get_train_loader(
+  File "/bigstorage/dana/PDE/utils.py", line 521, in get_train_loader
+    group_ids = grouper.metadata_to_group(dataset.metadata_array)
+AttributeError: 'Subset' object has no attribute 'metadata_array'

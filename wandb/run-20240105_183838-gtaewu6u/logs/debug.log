@@ -1,0 +1,34 @@
+2024-01-05 18:38:38,514 INFO    MainThread:1070180 [wandb_setup.py:_flush():76] Configure stats pid to 1070180
+2024-01-05 18:38:38,514 INFO    MainThread:1070180 [wandb_setup.py:_flush():76] Loading settings from /home/ag/.config/wandb/settings
+2024-01-05 18:38:38,514 INFO    MainThread:1070180 [wandb_setup.py:_flush():76] Loading settings from /bigstorage/dana/PDE/wandb/settings
+2024-01-05 18:38:38,514 INFO    MainThread:1070180 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-01-05 18:38:38,514 INFO    MainThread:1070180 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-01-05 18:38:38,514 INFO    MainThread:1070180 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'run_expt.py', 'program': '/bigstorage/dana/PDE/run_expt.py'}
+2024-01-05 18:38:38,514 INFO    MainThread:1070180 [wandb_init.py:_log_setup():507] Logging user logs to /bigstorage/dana/PDE/wandb/run-20240105_183838-gtaewu6u/logs/debug.log
+2024-01-05 18:38:38,515 INFO    MainThread:1070180 [wandb_init.py:_log_setup():508] Logging internal logs to /bigstorage/dana/PDE/wandb/run-20240105_183838-gtaewu6u/logs/debug-internal.log
+2024-01-05 18:38:38,515 INFO    MainThread:1070180 [wandb_init.py:init():547] calling init triggers
+2024-01-05 18:38:38,515 INFO    MainThread:1070180 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {}
+2024-01-05 18:38:38,515 INFO    MainThread:1070180 [wandb_init.py:init():595] starting backend
+2024-01-05 18:38:38,515 INFO    MainThread:1070180 [wandb_init.py:init():599] setting up manager
+2024-01-05 18:38:38,518 INFO    MainThread:1070180 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-01-05 18:38:38,521 INFO    MainThread:1070180 [wandb_init.py:init():605] backend started and connected
+2024-01-05 18:38:38,523 INFO    MainThread:1070180 [wandb_init.py:init():695] updated telemetry
+2024-01-05 18:38:38,531 INFO    MainThread:1070180 [wandb_init.py:init():732] communicating run to backend with 60.0 second timeout
+2024-01-05 18:38:38,936 INFO    MainThread:1070180 [wandb_run.py:_on_init():2176] communicating current version
+2024-01-05 18:38:39,082 INFO    MainThread:1070180 [wandb_run.py:_on_init():2185] got version response upgrade_message: "wandb version 0.16.1 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-01-05 18:38:39,082 INFO    MainThread:1070180 [wandb_init.py:init():782] starting run threads in backend
+2024-01-05 18:38:39,255 INFO    MainThread:1070180 [wandb_run.py:_console_start():2157] atexit reg
+2024-01-05 18:38:39,256 INFO    MainThread:1070180 [wandb_run.py:_redirect():2012] redirect: SettingsConsole.WRAP_RAW
+2024-01-05 18:38:39,256 INFO    MainThread:1070180 [wandb_run.py:_redirect():2077] Wrapping output streams.
+2024-01-05 18:38:39,256 INFO    MainThread:1070180 [wandb_run.py:_redirect():2102] Redirects installed.
+2024-01-05 18:38:39,258 INFO    MainThread:1070180 [wandb_init.py:init():824] run started, returning control to user process
+2024-01-05 18:38:39,265 INFO    MainThread:1070180 [wandb_run.py:_config_callback():1285] config_cb None None {'dataset': 'celebA', 'algorithm': 'groupDRO', 'root_dir': 'data', 'split_scheme': 'official', 'dataset_kwargs': {}, 'download': True, 'frac': 1.0, 'version': None, 'unlabeled_split': None, 'unlabeled_version': None, 'use_unlabeled_y': False, 'loader_kwargs': {'num_workers': 4, 'pin_memory': True}, 'unlabeled_loader_kwargs': {'num_workers': 8, 'pin_memory': True}, 'train_loader': 'standard', 'uniform_over_groups': True, 'distinct_groups': True, 'n_groups_per_batch': 4, 'unlabeled_n_groups_per_batch': None, 'batch_size': 128, 'unlabeled_batch_size': None, 'eval_loader': 'standard', 'gradient_accumulation_steps': 1, 'subsample': True, 'uniform_over_classes': False, 'add_num': 50, 'add_start': 16, 'add_interval': 10, 'uniform_after_subsample': False, 'uniform_add': False, 'subsample_alpha': 0.5, 'subsample_ref': 'same_across_class', 'subsample_cap': -1, 'subsample_cap_steps': [], 'subsample_cap_milestones': [], 'model': 'dino', 'model_kwargs': {'pretrained': True}, 'pretrained_model_path': None, 'load_featurizer_only': False, 'local_norm': 'none', 'teacher_model_path': None, 'transform': 'image_base', 'additional_train_transform': 'weak', 'target_resolution': [224, 224], 'resize_scale': None, 'max_token_length': None, 'randaugment_n': None, 'transform_warmup_only': None, 'loss_function': 'cross_entropy', 'loss_kwargs': {}, 'groupby_fields': ['male', 'y'], 'group_dro_step_size': 0.01, 'algo_log_metric': 'accuracy', 'process_pseudolabels_function': None, 'val_metric': 'acc_wg', 'val_metric_decreasing': False, 'n_epochs': 50, 'optimizer': 'SGD', 'lr': 0.01, 'weight_decay': 0.0001, 'max_grad_norm': None, 'optimizer_kwargs': {'momentum': 0.9}, 'reinit_optim': None, 'scheduler': None, 'scheduler_kwargs': {}, 'scheduler_metric_split': 'val', 'scheduler_metric_name': None, 'scheduler_multistep_milestones': [16], 'scheduler_multistep_gamma': None, 'process_outputs_function': 'multiclass_logits_to_pred', 'evaluate_all_splits': True, 'eval_splits': [], 'eval_only': False, 'eval_epoch': None, 'device': 'cuda', 'seed': 0, 'log_dir': './logs/celebA_groupDRO_lr1e-02_wd1e-04_uniform_subsample_add50-from16-every10_weak_bs128_seed0', 'log_every': 50, 'save_step': None, 'save_best': True, 'save_last': True, 'save_pred': True, 'no_group_logging': False, 'progress_bar': False, 'resume': False, 'use_wandb': True, 'wandb_api_key_path': None, 'wandb_kwargs': {}, 'use_data_parallel': False, 'logger': '<utils.Logger object at 0x7f683274e6b0>', 'add_milestones': [16, 26, 36, 46]}
+2024-01-05 22:18:36,775 INFO    MainThread:1070180 [wandb_run.py:_finish():1892] finishing run qatent/PDE/gtaewu6u
+2024-01-05 22:18:36,776 INFO    MainThread:1070180 [wandb_run.py:_atexit_cleanup():2126] got exitcode: 0
+2024-01-05 22:18:36,776 INFO    MainThread:1070180 [wandb_run.py:_restore():2109] restore
+2024-01-05 22:18:36,776 INFO    MainThread:1070180 [wandb_run.py:_restore():2115] restore done
+2024-01-05 22:18:45,272 INFO    MainThread:1070180 [wandb_run.py:_footer_history_summary_info():3476] rendering history
+2024-01-05 22:18:45,298 INFO    MainThread:1070180 [wandb_run.py:_footer_history_summary_info():3508] rendering summary
+2024-01-05 22:18:45,314 INFO    MainThread:1070180 [wandb_run.py:_footer_sync_info():3434] logging synced files

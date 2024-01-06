@@ -1,0 +1,214 @@
+Dataset: waterbirds
+Algorithm: ERM
+Root dir: data
+Split scheme: official
+Dataset kwargs: {}
+Download: True
+Frac: 1.0
+Version: None
+Unlabeled split: None
+Unlabeled version: None
+Use unlabeled y: False
+Loader kwargs: {'num_workers': 4, 'pin_memory': True}
+Unlabeled loader kwargs: {'num_workers': 8, 'pin_memory': True}
+Train loader: standard
+Uniform over groups: False
+Distinct groups: None
+N groups per batch: 4
+Unlabeled n groups per batch: None
+Batch size: 64
+Unlabeled batch size: None
+Eval loader: standard
+Gradient accumulation steps: 1
+Subsample: True
+Uniform over classes: False
+Add num: 10
+Add start: 140
+Add interval: 10
+Uniform after subsample: False
+Uniform add: False
+Subsample alpha: 0.5
+Subsample ref: keep_in_class
+Subsample cap: -1
+Subsample cap steps: []
+Subsample cap milestones: []
+Model: dinov2
+Model kwargs: {'pretrained': True}
+Pretrained model path: None
+Load featurizer only: False
+Local norm: none
+Teacher model path: None
+Transform: image_resize_and_center_crop
+Additional train transform: weak
+Target resolution: (224, 224)
+Resize scale: 1.1428571428571428
+Max token length: None
+Randaugment n: 2
+Transform warmup only: None
+Loss function: cross_entropy
+Loss kwargs: {}
+Groupby fields: ['background', 'y']
+Group dro step size: None
+Algo log metric: accuracy
+Process pseudolabels function: None
+Val metric: acc_wg
+Val metric decreasing: False
+N epochs: 300
+Optimizer: SGD
+Lr: 0.01
+Weight decay: 0.01
+Max grad norm: None
+Optimizer kwargs: {'momentum': 0.9}
+Reinit optim: None
+Scheduler: MultiStepLR
+Scheduler kwargs: {'verbose': True, 'gamma': 0.1}
+Scheduler metric split: val
+Scheduler metric name: None
+Scheduler multistep milestones: [140]
+Scheduler multistep gamma: 0.01
+Process outputs function: multiclass_logits_to_pred
+Evaluate all splits: True
+Eval splits: []
+Eval only: False
+Eval epoch: None
+Device: cuda
+Seed: 0
+Log dir: ./logs/waterbirds_ERM_lr1e-02_wd1e-02_subsample_add10-from140-every10_weak_bs64_seed0
+Log every: 50
+Save step: None
+Save best: True
+Save last: True
+Save pred: True
+No group logging: False
+Progress bar: False
+Resume: False
+Use wandb: True
+Wandb api key path: None
+Wandb kwargs: {}
+Use data parallel: False
+Logger: <utils.Logger object at 0x7f87fe7ff190>
+Add milestones: [140 150 160 170 180 190 200 210 220 230 240 250 260 270 280 290]
+Train data...
+    y =  landbird, background =  land: n = 3498
+    y =  landbird, background = water: n = 184
+    y = waterbird, background =  land: n = 56
+    y = waterbird, background = water: n = 1057
+Validation data...
+    y =  landbird, background =  land: n = 467
+    y =  landbird, background = water: n = 466
+    y = waterbird, background =  land: n = 133
+    y = waterbird, background = water: n = 133
+Test data...
+    y =  landbird, background =  land: n = 2255
+    y =  landbird, background = water: n = 2255
+    y = waterbird, background =  land: n = 642
+    y = waterbird, background = water: n = 642
+Adjusting learning rate of group 0 to 1.0000e-02.
+Using cache found in /home/ag/.cache/torch/hub/facebookresearch_dinov2_main
+/home/ag/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/ag/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/ag/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Epoch [0]:
+Number of training examples: 224
+Train:
+objective: 4.999
+loss_avg: 4.999
+acc_avg: 0.527
+  y =  landbird, background =  land  [n =     56]:	loss: 4.053	acc: 0.518	
+  y =  landbird, background = water  [n =     56]:	loss: 2.763	acc: 0.482	
+  y = waterbird, background =  land  [n =     56]:	loss: 6.090	acc: 0.571	
+  y = waterbird, background = water  [n =     56]:	loss: 7.091	acc: 0.536	
+Epoch eval:
+Adjusted average acc: 0.521
+  y =  landbird, background =  land  [n =     56]:	acc = 0.518
+  y =  landbird, background = water  [n =     56]:	acc = 0.482
+  y = waterbird, background =  land  [n =     56]:	acc = 0.571
+  y = waterbird, background = water  [n =     56]:	acc = 0.536
+Worst-group acc: 0.482
+  y =  landbird  [n =    112]:	acc = 0.500
+  y = waterbird  [n =    112]:	acc = 0.554
+Validation:
+Adjusting learning rate of group 0 to 1.0000e-02.
+objective: 8.578
+loss_avg: 8.578
+acc_avg: 0.222
+  y =  landbird, background =  land  [n =    467]:	loss: 11.096	acc: 0.000	
+  y =  landbird, background = water  [n =    466]:	loss: 10.951	acc: 0.000	
+  y = waterbird, background =  land  [n =    133]:	loss: 0.000	acc: 1.000	
+  y = waterbird, background = water  [n =    133]:	loss: 0.000	acc: 1.000	
+Epoch eval:
+Adjusted average acc: 0.232
+  y =  landbird, background =  land  [n =    467]:	acc = 0.000
+  y =  landbird, background = water  [n =    466]:	acc = 0.000
+  y = waterbird, background =  land  [n =    133]:	acc = 1.000
+  y = waterbird, background = water  [n =    133]:	acc = 1.000
+Worst-group acc: 0.000
+  y =  landbird  [n =    933]:	acc = 0.000
+  y = waterbird  [n =    266]:	acc = 1.000
+Validation acc_wg: 0.000
+Epoch 0 has the best validation performance so far.
+Epoch [1]:
+Number of training examples: 224
+Train:
+objective: 5.341
+loss_avg: 5.341
+acc_avg: 0.518
+  y =  landbird, background =  land  [n =     56]:	loss: 7.614	acc: 0.518	
+  y =  landbird, background = water  [n =     56]:	loss: 5.132	acc: 0.661	
+  y = waterbird, background =  land  [n =     56]:	loss: 4.864	acc: 0.393	
+  y = waterbird, background = water  [n =     56]:	loss: 3.756	acc: 0.500	
+Epoch eval:
+Adjusted average acc: 0.518
+  y =  landbird, background =  land  [n =     56]:	acc = 0.518
+  y =  landbird, background = water  [n =     56]:	acc = 0.661
+  y = waterbird, background =  land  [n =     56]:	acc = 0.393
+  y = waterbird, background = water  [n =     56]:	acc = 0.500
+Worst-group acc: 0.393
+  y =  landbird  [n =    112]:	acc = 0.589
+  y = waterbird  [n =    112]:	acc = 0.446
+Validation:
+Adjusting learning rate of group 0 to 1.0000e-02.
+objective: 26.317
+loss_avg: 26.317
+acc_avg: 0.222
+  y =  landbird, background =  land  [n =    467]:	loss: 33.821	acc: 0.000	
+  y =  landbird, background = water  [n =    466]:	loss: 33.820	acc: 0.000	
+  y = waterbird, background =  land  [n =    133]:	loss: 0.000	acc: 1.000	
+  y = waterbird, background = water  [n =    133]:	loss: 0.000	acc: 1.000	
+Epoch eval:
+Adjusted average acc: 0.232
+  y =  landbird, background =  land  [n =    467]:	acc = 0.000
+  y =  landbird, background = water  [n =    466]:	acc = 0.000
+  y = waterbird, background =  land  [n =    133]:	acc = 1.000
+  y = waterbird, background = water  [n =    133]:	acc = 1.000
+Worst-group acc: 0.000
+  y =  landbird  [n =    933]:	acc = 0.000
+  y = waterbird  [n =    266]:	acc = 1.000
+Validation acc_wg: 0.000
+Traceback (most recent call last):
+  File "/bigstorage/dana/PDE/run_expt.py", line 435, in <module>
+    main(config)
+  File "/bigstorage/dana/PDE/run_expt.py", line 353, in main
+    train(
+  File "/bigstorage/dana/PDE/train.py", line 264, in train
+    _, y_pred = run_epoch(algorithm, datasets[split], general_logger, epoch, config, train=False)
+  File "/bigstorage/dana/PDE/train.py", line 55, in run_epoch
+    batch_results = algorithm.evaluate(labeled_batch)
+  File "/bigstorage/dana/PDE/algorithms/single_model_algorithm.py", line 119, in evaluate
+    results['objective'] = self.objective(results).item()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/bigstorage/dana/PDE/run_expt.py", line 435, in <module>
+    main(config)
+  File "/bigstorage/dana/PDE/run_expt.py", line 353, in main
+    train(
+  File "/bigstorage/dana/PDE/train.py", line 264, in train
+    _, y_pred = run_epoch(algorithm, datasets[split], general_logger, epoch, config, train=False)
+  File "/bigstorage/dana/PDE/train.py", line 55, in run_epoch
+    batch_results = algorithm.evaluate(labeled_batch)
+  File "/bigstorage/dana/PDE/algorithms/single_model_algorithm.py", line 119, in evaluate
+    results['objective'] = self.objective(results).item()
+KeyboardInterrupt

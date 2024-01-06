@@ -1,0 +1,3641 @@
+Dataset: celebA
+Algorithm: ERM
+Root dir: data
+Split scheme: official
+Dataset kwargs: {}
+Download: True
+Frac: 1.0
+Version: None
+Unlabeled split: None
+Unlabeled version: None
+Use unlabeled y: False
+Loader kwargs: {'num_workers': 4, 'pin_memory': True}
+Unlabeled loader kwargs: {'num_workers': 8, 'pin_memory': True}
+Train loader: standard
+Uniform over groups: False
+Distinct groups: None
+N groups per batch: 4
+Unlabeled n groups per batch: None
+Batch size: 128
+Unlabeled batch size: None
+Eval loader: standard
+Gradient accumulation steps: 1
+Subsample: True
+Uniform over classes: False
+Add num: 50
+Add start: 16
+Add interval: 10
+Uniform after subsample: False
+Uniform add: False
+Subsample alpha: 0.5
+Subsample ref: same_across_class
+Subsample cap: -1
+Subsample cap steps: []
+Subsample cap milestones: []
+Model: dino
+Model kwargs: {'pretrained': True}
+Pretrained model path: None
+Load featurizer only: False
+Local norm: none
+Teacher model path: None
+Transform: image_base
+Additional train transform: weak
+Target resolution: (224, 224)
+Resize scale: None
+Max token length: None
+Randaugment n: 2
+Transform warmup only: None
+Loss function: cross_entropy
+Loss kwargs: {}
+Groupby fields: ['male', 'y']
+Group dro step size: None
+Algo log metric: accuracy
+Process pseudolabels function: None
+Val metric: acc_wg
+Val metric decreasing: False
+N epochs: 50
+Optimizer: SGD
+Lr: 0.01
+Weight decay: 0.0001
+Max grad norm: None
+Optimizer kwargs: {'momentum': 0.9}
+Reinit optim: None
+Scheduler: None
+Scheduler kwargs: {}
+Scheduler metric split: val
+Scheduler metric name: None
+Scheduler multistep milestones: [16]
+Scheduler multistep gamma: None
+Process outputs function: multiclass_logits_to_pred
+Evaluate all splits: True
+Eval splits: []
+Eval only: False
+Eval epoch: None
+Device: cuda
+Seed: 0
+Log dir: ./logs/celebA_ERM_lr1e-02_wd1e-04_subsample_add50-from16-every10_weak_bs128_seed0
+Log every: 50
+Save step: None
+Save best: True
+Save last: True
+Save pred: True
+No group logging: False
+Progress bar: False
+Resume: False
+Use wandb: True
+Wandb api key path: None
+Wandb kwargs: {}
+Use data parallel: False
+Logger: <utils.Logger object at 0x7fc209f397e0>
+Add milestones: [16 26 36 46]
+Train data...
+    y = not blond, male = 0: n = 71629
+    y = not blond, male = 1: n = 66874
+    y =     blond, male = 0: n = 22880
+    y =     blond, male = 1: n = 1387
+Validation data...
+    y = not blond, male = 0: n = 8535
+    y = not blond, male = 1: n = 8276
+    y =     blond, male = 0: n = 2874
+    y =     blond, male = 1: n = 182
+Test data...
+    y = not blond, male = 0: n = 9767
+    y = not blond, male = 1: n = 7535
+    y =     blond, male = 0: n = 2480
+    y =     blond, male = 1: n = 180
+Using cache found in /home/ag/.cache/torch/hub/facebookresearch_dino_main
+/home/ag/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/ag/.local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+Epoch [0]:
+Number of training examples: 5548
+Train:
+objective: 0.592
+loss_avg: 0.592
+acc_avg: 0.717
+  y = not blond, male = 0  [n =   1387]:	loss: 0.601	acc: 0.690	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.585	acc: 0.733	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.538	acc: 0.816	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.643	acc: 0.629	
+Epoch eval:
+Average acc: 0.717
+  y = not blond, male = 0  [n =   1387]:	acc = 0.690
+  y = not blond, male = 1  [n =   1387]:	acc = 0.733
+  y =     blond, male = 0  [n =   1387]:	acc = 0.816
+  y =     blond, male = 1  [n =   1387]:	acc = 0.629
+Worst-group acc: 0.629
+  y = not blond  [n =   2774]:	acc = 0.712
+  y =     blond  [n =   2774]:	acc = 0.722
+Validation:
+objective: 0.494
+loss_avg: 0.494
+acc_avg: 0.810
+  y = not blond, male = 0  [n =   8535]:	loss: 0.570	acc: 0.715	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.478	acc: 0.853	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.310	acc: 0.969	
+  y =     blond, male = 1  [n =    182]:	loss: 0.530	acc: 0.786	
+Epoch eval:
+Average acc: 0.810
+  y = not blond, male = 0  [n =   8535]:	acc = 0.715
+  y = not blond, male = 1  [n =   8276]:	acc = 0.853
+  y =     blond, male = 0  [n =   2874]:	acc = 0.969
+  y =     blond, male = 1  [n =    182]:	acc = 0.786
+Worst-group acc: 0.715
+  y = not blond  [n =  16811]:	acc = 0.783
+  y =     blond  [n =   3056]:	acc = 0.958
+Validation acc_wg: 0.715
+Epoch 0 has the best validation performance so far.
+Epoch [1]:
+Number of training examples: 5548
+Train:
+objective: 0.386
+loss_avg: 0.386
+acc_avg: 0.869
+  y = not blond, male = 0  [n =   1387]:	loss: 0.412	acc: 0.828	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.380	acc: 0.890	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.266	acc: 0.954	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.487	acc: 0.804	
+Epoch eval:
+Average acc: 0.869
+  y = not blond, male = 0  [n =   1387]:	acc = 0.828
+  y = not blond, male = 1  [n =   1387]:	acc = 0.890
+  y =     blond, male = 0  [n =   1387]:	acc = 0.954
+  y =     blond, male = 1  [n =   1387]:	acc = 0.804
+Worst-group acc: 0.804
+  y = not blond  [n =   2774]:	acc = 0.859
+  y =     blond  [n =   2774]:	acc = 0.879
+Validation:
+objective: 0.295
+loss_avg: 0.295
+acc_avg: 0.889
+  y = not blond, male = 0  [n =   8535]:	loss: 0.332	acc: 0.853	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.266	acc: 0.917	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.250	acc: 0.931	
+  y =     blond, male = 1  [n =    182]:	loss: 0.546	acc: 0.709	
+Epoch eval:
+Average acc: 0.889
+  y = not blond, male = 0  [n =   8535]:	acc = 0.853
+  y = not blond, male = 1  [n =   8276]:	acc = 0.917
+  y =     blond, male = 0  [n =   2874]:	acc = 0.931
+  y =     blond, male = 1  [n =    182]:	acc = 0.709
+Worst-group acc: 0.709
+  y = not blond  [n =  16811]:	acc = 0.884
+  y =     blond  [n =   3056]:	acc = 0.918
+Validation acc_wg: 0.709
+Epoch [2]:
+Number of training examples: 5548
+Train:
+objective: 0.295
+loss_avg: 0.295
+acc_avg: 0.891
+  y = not blond, male = 0  [n =   1387]:	loss: 0.311	acc: 0.864	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.302	acc: 0.896	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.182	acc: 0.960	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.382	acc: 0.843	
+Epoch eval:
+Average acc: 0.891
+  y = not blond, male = 0  [n =   1387]:	acc = 0.864
+  y = not blond, male = 1  [n =   1387]:	acc = 0.896
+  y =     blond, male = 0  [n =   1387]:	acc = 0.960
+  y =     blond, male = 1  [n =   1387]:	acc = 0.843
+Worst-group acc: 0.843
+  y = not blond  [n =   2774]:	acc = 0.880
+  y =     blond  [n =   2774]:	acc = 0.901
+Validation:
+objective: 0.261
+loss_avg: 0.261
+acc_avg: 0.891
+  y = not blond, male = 0  [n =   8535]:	loss: 0.303	acc: 0.861	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.235	acc: 0.910	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.203	acc: 0.934	
+  y =     blond, male = 1  [n =    182]:	loss: 0.439	acc: 0.791	
+Epoch eval:
+Average acc: 0.891
+  y = not blond, male = 0  [n =   8535]:	acc = 0.861
+  y = not blond, male = 1  [n =   8276]:	acc = 0.910
+  y =     blond, male = 0  [n =   2874]:	acc = 0.934
+  y =     blond, male = 1  [n =    182]:	acc = 0.791
+Worst-group acc: 0.791
+  y = not blond  [n =  16811]:	acc = 0.885
+  y =     blond  [n =   3056]:	acc = 0.925
+Validation acc_wg: 0.791
+Epoch 2 has the best validation performance so far.
+Epoch [3]:
+Number of training examples: 5548
+Train:
+objective: 0.260
+loss_avg: 0.260
+acc_avg: 0.897
+  y = not blond, male = 0  [n =   1387]:	loss: 0.266	acc: 0.881	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.266	acc: 0.895	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.174	acc: 0.942	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.333	acc: 0.870	
+Epoch eval:
+Average acc: 0.897
+  y = not blond, male = 0  [n =   1387]:	acc = 0.881
+  y = not blond, male = 1  [n =   1387]:	acc = 0.895
+  y =     blond, male = 0  [n =   1387]:	acc = 0.942
+  y =     blond, male = 1  [n =   1387]:	acc = 0.870
+Worst-group acc: 0.870
+  y = not blond  [n =   2774]:	acc = 0.888
+  y =     blond  [n =   2774]:	acc = 0.906
+Validation:
+objective: 0.369
+loss_avg: 0.369
+acc_avg: 0.844
+  y = not blond, male = 0  [n =   8535]:	loss: 0.453	acc: 0.805	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.378	acc: 0.837	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.102	acc: 0.971	
+  y =     blond, male = 1  [n =    182]:	loss: 0.207	acc: 0.951	
+Epoch eval:
+Average acc: 0.844
+  y = not blond, male = 0  [n =   8535]:	acc = 0.805
+  y = not blond, male = 1  [n =   8276]:	acc = 0.837
+  y =     blond, male = 0  [n =   2874]:	acc = 0.971
+  y =     blond, male = 1  [n =    182]:	acc = 0.951
+Worst-group acc: 0.805
+  y = not blond  [n =  16811]:	acc = 0.821
+  y =     blond  [n =   3056]:	acc = 0.970
+Validation acc_wg: 0.805
+Epoch 3 has the best validation performance so far.
+Epoch [4]:
+Number of training examples: 5548
+Train:
+objective: 0.242
+loss_avg: 0.242
+acc_avg: 0.903
+  y = not blond, male = 0  [n =   1387]:	loss: 0.257	acc: 0.880	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.264	acc: 0.895	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.158	acc: 0.952	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.289	acc: 0.885	
+Epoch eval:
+Average acc: 0.903
+  y = not blond, male = 0  [n =   1387]:	acc = 0.880
+  y = not blond, male = 1  [n =   1387]:	acc = 0.895
+  y =     blond, male = 0  [n =   1387]:	acc = 0.952
+  y =     blond, male = 1  [n =   1387]:	acc = 0.885
+Worst-group acc: 0.880
+  y = not blond  [n =   2774]:	acc = 0.888
+  y =     blond  [n =   2774]:	acc = 0.919
+Validation:
+objective: 0.320
+loss_avg: 0.320
+acc_avg: 0.865
+  y = not blond, male = 0  [n =   8535]:	loss: 0.392	acc: 0.831	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.318	acc: 0.864	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.116	acc: 0.965	
+  y =     blond, male = 1  [n =    182]:	loss: 0.220	acc: 0.940	
+Epoch eval:
+Average acc: 0.865
+  y = not blond, male = 0  [n =   8535]:	acc = 0.831
+  y = not blond, male = 1  [n =   8276]:	acc = 0.864
+  y =     blond, male = 0  [n =   2874]:	acc = 0.965
+  y =     blond, male = 1  [n =    182]:	acc = 0.940
+Worst-group acc: 0.831
+  y = not blond  [n =  16811]:	acc = 0.847
+  y =     blond  [n =   3056]:	acc = 0.963
+Validation acc_wg: 0.831
+Epoch 4 has the best validation performance so far.
+Epoch [5]:
+Number of training examples: 5548
+Train:
+objective: 0.220
+loss_avg: 0.220
+acc_avg: 0.914
+  y = not blond, male = 0  [n =   1387]:	loss: 0.232	acc: 0.895	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.237	acc: 0.907	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.151	acc: 0.951	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.261	acc: 0.903	
+Epoch eval:
+Average acc: 0.914
+  y = not blond, male = 0  [n =   1387]:	acc = 0.895
+  y = not blond, male = 1  [n =   1387]:	acc = 0.907
+  y =     blond, male = 0  [n =   1387]:	acc = 0.951
+  y =     blond, male = 1  [n =   1387]:	acc = 0.903
+Worst-group acc: 0.895
+  y = not blond  [n =   2774]:	acc = 0.901
+  y =     blond  [n =   2774]:	acc = 0.927
+Validation:
+objective: 0.285
+loss_avg: 0.285
+acc_avg: 0.881
+  y = not blond, male = 0  [n =   8535]:	loss: 0.342	acc: 0.851	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.281	acc: 0.883	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.131	acc: 0.958	
+  y =     blond, male = 1  [n =    182]:	loss: 0.228	acc: 0.934	
+Epoch eval:
+Average acc: 0.881
+  y = not blond, male = 0  [n =   8535]:	acc = 0.851
+  y = not blond, male = 1  [n =   8276]:	acc = 0.883
+  y =     blond, male = 0  [n =   2874]:	acc = 0.958
+  y =     blond, male = 1  [n =    182]:	acc = 0.934
+Worst-group acc: 0.851
+  y = not blond  [n =  16811]:	acc = 0.867
+  y =     blond  [n =   3056]:	acc = 0.956
+Validation acc_wg: 0.851
+Epoch 5 has the best validation performance so far.
+Epoch [6]:
+Number of training examples: 5548
+Train:
+objective: 0.206
+loss_avg: 0.206
+acc_avg: 0.921
+  y = not blond, male = 0  [n =   1387]:	loss: 0.224	acc: 0.898	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.222	acc: 0.915	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.136	acc: 0.959	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.241	acc: 0.910	
+Epoch eval:
+Average acc: 0.921
+  y = not blond, male = 0  [n =   1387]:	acc = 0.898
+  y = not blond, male = 1  [n =   1387]:	acc = 0.915
+  y =     blond, male = 0  [n =   1387]:	acc = 0.959
+  y =     blond, male = 1  [n =   1387]:	acc = 0.910
+Worst-group acc: 0.898
+  y = not blond  [n =   2774]:	acc = 0.907
+  y =     blond  [n =   2774]:	acc = 0.934
+Validation:
+objective: 0.219
+loss_avg: 0.219
+acc_avg: 0.908
+  y = not blond, male = 0  [n =   8535]:	loss: 0.253	acc: 0.888	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.193	acc: 0.923	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.184	acc: 0.928	
+  y =     blond, male = 1  [n =    182]:	loss: 0.320	acc: 0.885	
+Epoch eval:
+Average acc: 0.908
+  y = not blond, male = 0  [n =   8535]:	acc = 0.888
+  y = not blond, male = 1  [n =   8276]:	acc = 0.923
+  y =     blond, male = 0  [n =   2874]:	acc = 0.928
+  y =     blond, male = 1  [n =    182]:	acc = 0.885
+Worst-group acc: 0.885
+  y = not blond  [n =  16811]:	acc = 0.905
+  y =     blond  [n =   3056]:	acc = 0.925
+Validation acc_wg: 0.885
+Epoch 6 has the best validation performance so far.
+Epoch [7]:
+Number of training examples: 5548
+Train:
+objective: 0.196
+loss_avg: 0.196
+acc_avg: 0.925
+  y = not blond, male = 0  [n =   1387]:	loss: 0.201	acc: 0.909	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.202	acc: 0.925	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.141	acc: 0.955	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.241	acc: 0.910	
+Epoch eval:
+Average acc: 0.925
+  y = not blond, male = 0  [n =   1387]:	acc = 0.909
+  y = not blond, male = 1  [n =   1387]:	acc = 0.925
+  y =     blond, male = 0  [n =   1387]:	acc = 0.955
+  y =     blond, male = 1  [n =   1387]:	acc = 0.910
+Worst-group acc: 0.909
+  y = not blond  [n =   2774]:	acc = 0.917
+  y =     blond  [n =   2774]:	acc = 0.933
+Validation:
+objective: 0.261
+loss_avg: 0.261
+acc_avg: 0.893
+  y = not blond, male = 0  [n =   8535]:	loss: 0.317	acc: 0.863	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.249	acc: 0.900	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.131	acc: 0.956	
+  y =     blond, male = 1  [n =    182]:	loss: 0.207	acc: 0.940	
+Epoch eval:
+Average acc: 0.893
+  y = not blond, male = 0  [n =   8535]:	acc = 0.863
+  y = not blond, male = 1  [n =   8276]:	acc = 0.900
+  y =     blond, male = 0  [n =   2874]:	acc = 0.956
+  y =     blond, male = 1  [n =    182]:	acc = 0.940
+Worst-group acc: 0.863
+  y = not blond  [n =  16811]:	acc = 0.881
+  y =     blond  [n =   3056]:	acc = 0.955
+Validation acc_wg: 0.863
+Epoch [8]:
+Number of training examples: 5548
+Train:
+objective: 0.188
+loss_avg: 0.188
+acc_avg: 0.926
+  y = not blond, male = 0  [n =   1387]:	loss: 0.197	acc: 0.907	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.193	acc: 0.923	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.130	acc: 0.958	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.230	acc: 0.917	
+Epoch eval:
+Average acc: 0.926
+  y = not blond, male = 0  [n =   1387]:	acc = 0.907
+  y = not blond, male = 1  [n =   1387]:	acc = 0.923
+  y =     blond, male = 0  [n =   1387]:	acc = 0.958
+  y =     blond, male = 1  [n =   1387]:	acc = 0.917
+Worst-group acc: 0.907
+  y = not blond  [n =   2774]:	acc = 0.915
+  y =     blond  [n =   2774]:	acc = 0.938
+Validation:
+objective: 0.231
+loss_avg: 0.231
+acc_avg: 0.904
+  y = not blond, male = 0  [n =   8535]:	loss: 0.275	acc: 0.878	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.211	acc: 0.916	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.156	acc: 0.943	
+  y =     blond, male = 1  [n =    182]:	loss: 0.247	acc: 0.918	
+Epoch eval:
+Average acc: 0.904
+  y = not blond, male = 0  [n =   8535]:	acc = 0.878
+  y = not blond, male = 1  [n =   8276]:	acc = 0.916
+  y =     blond, male = 0  [n =   2874]:	acc = 0.943
+  y =     blond, male = 1  [n =    182]:	acc = 0.918
+Worst-group acc: 0.878
+  y = not blond  [n =  16811]:	acc = 0.897
+  y =     blond  [n =   3056]:	acc = 0.941
+Validation acc_wg: 0.878
+Epoch [9]:
+Number of training examples: 5548
+Train:
+objective: 0.177
+loss_avg: 0.177
+acc_avg: 0.932
+  y = not blond, male = 0  [n =   1387]:	loss: 0.205	acc: 0.904	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.194	acc: 0.924	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.116	acc: 0.968	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.193	acc: 0.934	
+Epoch eval:
+Average acc: 0.932
+  y = not blond, male = 0  [n =   1387]:	acc = 0.904
+  y = not blond, male = 1  [n =   1387]:	acc = 0.924
+  y =     blond, male = 0  [n =   1387]:	acc = 0.968
+  y =     blond, male = 1  [n =   1387]:	acc = 0.934
+Worst-group acc: 0.904
+  y = not blond  [n =   2774]:	acc = 0.914
+  y =     blond  [n =   2774]:	acc = 0.951
+Validation:
+objective: 0.222
+loss_avg: 0.222
+acc_avg: 0.908
+  y = not blond, male = 0  [n =   8535]:	loss: 0.266	acc: 0.883	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.197	acc: 0.922	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.161	acc: 0.939	
+  y =     blond, male = 1  [n =    182]:	loss: 0.248	acc: 0.923	
+Epoch eval:
+Average acc: 0.908
+  y = not blond, male = 0  [n =   8535]:	acc = 0.883
+  y = not blond, male = 1  [n =   8276]:	acc = 0.922
+  y =     blond, male = 0  [n =   2874]:	acc = 0.939
+  y =     blond, male = 1  [n =    182]:	acc = 0.923
+Worst-group acc: 0.883
+  y = not blond  [n =  16811]:	acc = 0.902
+  y =     blond  [n =   3056]:	acc = 0.938
+Validation acc_wg: 0.883
+Epoch [10]:
+Number of training examples: 5548
+Train:
+objective: 0.169
+loss_avg: 0.169
+acc_avg: 0.937
+  y = not blond, male = 0  [n =   1387]:	loss: 0.162	acc: 0.926	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.159	acc: 0.944	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.134	acc: 0.957	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.220	acc: 0.921	
+Epoch eval:
+Average acc: 0.937
+  y = not blond, male = 0  [n =   1387]:	acc = 0.926
+  y = not blond, male = 1  [n =   1387]:	acc = 0.944
+  y =     blond, male = 0  [n =   1387]:	acc = 0.957
+  y =     blond, male = 1  [n =   1387]:	acc = 0.921
+Worst-group acc: 0.921
+  y = not blond  [n =   2774]:	acc = 0.935
+  y =     blond  [n =   2774]:	acc = 0.939
+Validation:
+objective: 0.285
+loss_avg: 0.285
+acc_avg: 0.888
+  y = not blond, male = 0  [n =   8535]:	loss: 0.352	acc: 0.859	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.281	acc: 0.890	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.107	acc: 0.966	
+  y =     blond, male = 1  [n =    182]:	loss: 0.151	acc: 0.940	
+Epoch eval:
+Average acc: 0.888
+  y = not blond, male = 0  [n =   8535]:	acc = 0.859
+  y = not blond, male = 1  [n =   8276]:	acc = 0.890
+  y =     blond, male = 0  [n =   2874]:	acc = 0.966
+  y =     blond, male = 1  [n =    182]:	acc = 0.940
+Worst-group acc: 0.859
+  y = not blond  [n =  16811]:	acc = 0.874
+  y =     blond  [n =   3056]:	acc = 0.965
+Validation acc_wg: 0.859
+Epoch [11]:
+Number of training examples: 5548
+Train:
+objective: 0.157
+loss_avg: 0.157
+acc_avg: 0.941
+  y = not blond, male = 0  [n =   1387]:	loss: 0.174	acc: 0.920	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.174	acc: 0.935	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.102	acc: 0.973	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.179	acc: 0.937	
+Epoch eval:
+Average acc: 0.941
+  y = not blond, male = 0  [n =   1387]:	acc = 0.920
+  y = not blond, male = 1  [n =   1387]:	acc = 0.935
+  y =     blond, male = 0  [n =   1387]:	acc = 0.973
+  y =     blond, male = 1  [n =   1387]:	acc = 0.937
+Worst-group acc: 0.920
+  y = not blond  [n =   2774]:	acc = 0.928
+  y =     blond  [n =   2774]:	acc = 0.955
+Validation:
+objective: 0.221
+loss_avg: 0.221
+acc_avg: 0.910
+  y = not blond, male = 0  [n =   8535]:	loss: 0.263	acc: 0.888	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.200	acc: 0.922	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.157	acc: 0.941	
+  y =     blond, male = 1  [n =    182]:	loss: 0.229	acc: 0.918	
+Epoch eval:
+Average acc: 0.910
+  y = not blond, male = 0  [n =   8535]:	acc = 0.888
+  y = not blond, male = 1  [n =   8276]:	acc = 0.922
+  y =     blond, male = 0  [n =   2874]:	acc = 0.941
+  y =     blond, male = 1  [n =    182]:	acc = 0.918
+Worst-group acc: 0.888
+  y = not blond  [n =  16811]:	acc = 0.905
+  y =     blond  [n =   3056]:	acc = 0.939
+Validation acc_wg: 0.888
+Epoch 11 has the best validation performance so far.
+Epoch [12]:
+Number of training examples: 5548
+Train:
+objective: 0.144
+loss_avg: 0.144
+acc_avg: 0.948
+  y = not blond, male = 0  [n =   1387]:	loss: 0.149	acc: 0.935	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.146	acc: 0.947	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.108	acc: 0.973	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.175	acc: 0.939	
+Epoch eval:
+Average acc: 0.948
+  y = not blond, male = 0  [n =   1387]:	acc = 0.935
+  y = not blond, male = 1  [n =   1387]:	acc = 0.947
+  y =     blond, male = 0  [n =   1387]:	acc = 0.973
+  y =     blond, male = 1  [n =   1387]:	acc = 0.939
+Worst-group acc: 0.935
+  y = not blond  [n =   2774]:	acc = 0.941
+  y =     blond  [n =   2774]:	acc = 0.956
+Validation:
+objective: 0.198
+loss_avg: 0.198
+acc_avg: 0.919
+  y = not blond, male = 0  [n =   8535]:	loss: 0.227	acc: 0.903	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.171	acc: 0.933	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.188	acc: 0.924	
+  y =     blond, male = 1  [n =    182]:	loss: 0.261	acc: 0.896	
+Epoch eval:
+Average acc: 0.919
+  y = not blond, male = 0  [n =   8535]:	acc = 0.903
+  y = not blond, male = 1  [n =   8276]:	acc = 0.933
+  y =     blond, male = 0  [n =   2874]:	acc = 0.924
+  y =     blond, male = 1  [n =    182]:	acc = 0.896
+Worst-group acc: 0.896
+  y = not blond  [n =  16811]:	acc = 0.918
+  y =     blond  [n =   3056]:	acc = 0.923
+Validation acc_wg: 0.896
+Epoch 12 has the best validation performance so far.
+Epoch [13]:
+Number of training examples: 5548
+Train:
+objective: 0.137
+loss_avg: 0.137
+acc_avg: 0.952
+  y = not blond, male = 0  [n =   1387]:	loss: 0.142	acc: 0.935	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.130	acc: 0.957	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.105	acc: 0.970	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.172	acc: 0.946	
+Epoch eval:
+Average acc: 0.952
+  y = not blond, male = 0  [n =   1387]:	acc = 0.935
+  y = not blond, male = 1  [n =   1387]:	acc = 0.957
+  y =     blond, male = 0  [n =   1387]:	acc = 0.970
+  y =     blond, male = 1  [n =   1387]:	acc = 0.946
+Worst-group acc: 0.935
+  y = not blond  [n =   2774]:	acc = 0.946
+  y =     blond  [n =   2774]:	acc = 0.958
+Validation:
+objective: 0.293
+loss_avg: 0.293
+acc_avg: 0.888
+  y = not blond, male = 0  [n =   8535]:	loss: 0.365	acc: 0.859	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.288	acc: 0.891	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.103	acc: 0.964	
+  y =     blond, male = 1  [n =    182]:	loss: 0.133	acc: 0.945	
+Epoch eval:
+Average acc: 0.888
+  y = not blond, male = 0  [n =   8535]:	acc = 0.859
+  y = not blond, male = 1  [n =   8276]:	acc = 0.891
+  y =     blond, male = 0  [n =   2874]:	acc = 0.964
+  y =     blond, male = 1  [n =    182]:	acc = 0.945
+Worst-group acc: 0.859
+  y = not blond  [n =  16811]:	acc = 0.875
+  y =     blond  [n =   3056]:	acc = 0.963
+Validation acc_wg: 0.859
+Epoch [14]:
+Number of training examples: 5548
+Train:
+objective: 0.127
+loss_avg: 0.127
+acc_avg: 0.954
+  y = not blond, male = 0  [n =   1387]:	loss: 0.136	acc: 0.940	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.137	acc: 0.944	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.088	acc: 0.978	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.147	acc: 0.952	
+Epoch eval:
+Average acc: 0.954
+  y = not blond, male = 0  [n =   1387]:	acc = 0.940
+  y = not blond, male = 1  [n =   1387]:	acc = 0.944
+  y =     blond, male = 0  [n =   1387]:	acc = 0.978
+  y =     blond, male = 1  [n =   1387]:	acc = 0.952
+Worst-group acc: 0.940
+  y = not blond  [n =   2774]:	acc = 0.942
+  y =     blond  [n =   2774]:	acc = 0.965
+Validation:
+objective: 0.211
+loss_avg: 0.211
+acc_avg: 0.916
+  y = not blond, male = 0  [n =   8535]:	loss: 0.254	acc: 0.897	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.180	acc: 0.930	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.172	acc: 0.932	
+  y =     blond, male = 1  [n =    182]:	loss: 0.256	acc: 0.901	
+Epoch eval:
+Average acc: 0.916
+  y = not blond, male = 0  [n =   8535]:	acc = 0.897
+  y = not blond, male = 1  [n =   8276]:	acc = 0.930
+  y =     blond, male = 0  [n =   2874]:	acc = 0.932
+  y =     blond, male = 1  [n =    182]:	acc = 0.901
+Worst-group acc: 0.897
+  y = not blond  [n =  16811]:	acc = 0.913
+  y =     blond  [n =   3056]:	acc = 0.930
+Validation acc_wg: 0.897
+Epoch 14 has the best validation performance so far.
+Epoch [15]:
+Number of training examples: 5548
+Train:
+objective: 0.118
+loss_avg: 0.118
+acc_avg: 0.959
+  y = not blond, male = 0  [n =   1387]:	loss: 0.113	acc: 0.948	
+  y = not blond, male = 1  [n =   1387]:	loss: 0.116	acc: 0.962	
+  y =     blond, male = 0  [n =   1387]:	loss: 0.095	acc: 0.971	
+  y =     blond, male = 1  [n =   1387]:	loss: 0.149	acc: 0.954	
+Epoch eval:
+Average acc: 0.959
+  y = not blond, male = 0  [n =   1387]:	acc = 0.948
+  y = not blond, male = 1  [n =   1387]:	acc = 0.962
+  y =     blond, male = 0  [n =   1387]:	acc = 0.971
+  y =     blond, male = 1  [n =   1387]:	acc = 0.954
+Worst-group acc: 0.948
+  y = not blond  [n =   2774]:	acc = 0.955
+  y =     blond  [n =   2774]:	acc = 0.963
+Validation:
+objective: 0.265
+loss_avg: 0.265
+acc_avg: 0.900
+  y = not blond, male = 0  [n =   8535]:	loss: 0.326	acc: 0.876	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.254	acc: 0.906	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.126	acc: 0.952	
+  y =     blond, male = 1  [n =    182]:	loss: 0.162	acc: 0.934	
+Epoch eval:
+Average acc: 0.900
+  y = not blond, male = 0  [n =   8535]:	acc = 0.876
+  y = not blond, male = 1  [n =   8276]:	acc = 0.906
+  y =     blond, male = 0  [n =   2874]:	acc = 0.952
+  y =     blond, male = 1  [n =    182]:	acc = 0.934
+Worst-group acc: 0.876
+  y = not blond  [n =  16811]:	acc = 0.891
+  y =     blond  [n =   3056]:	acc = 0.951
+Validation acc_wg: 0.876
+Epoch [16]:
+Number of training examples: 5548Class-independent Sampling...
+Adding 22880 examples uniformly to groups with the attribute=0...
+Adding 22880 examples to group 0...
+Adding 22880 examples to group 2...
+Adding 1387 examples uniformly to groups with the attribute=1...
+Adding 1387 examples to group 1...
+Adding 1387 examples to group 3...
+Train:
+objective: 0.218
+loss_avg: 0.218
+acc_avg: 0.916
+  y = not blond, male = 0  [n =   3071]:	loss: 0.244	acc: 0.909	
+  y = not blond, male = 1  [n =    175]:	loss: 0.209	acc: 0.920	
+  y =     blond, male = 0  [n =   2940]:	loss: 0.190	acc: 0.921	
+  y =     blond, male = 1  [n =    214]:	loss: 0.220	acc: 0.930	
+objective: 0.202
+loss_avg: 0.202
+acc_avg: 0.919
+  y = not blond, male = 0  [n =   3021]:	loss: 0.223	acc: 0.907	
+  y = not blond, male = 1  [n =    164]:	loss: 0.225	acc: 0.933	
+  y =     blond, male = 0  [n =   3023]:	loss: 0.178	acc: 0.931	
+  y =     blond, male = 1  [n =    192]:	loss: 0.225	acc: 0.922	
+objective: 0.192
+loss_avg: 0.192
+acc_avg: 0.927
+  y = not blond, male = 0  [n =   2981]:	loss: 0.216	acc: 0.916	
+  y = not blond, male = 1  [n =    228]:	loss: 0.120	acc: 0.961	
+  y =     blond, male = 0  [n =   3020]:	loss: 0.171	acc: 0.939	
+  y =     blond, male = 1  [n =    171]:	loss: 0.257	acc: 0.871	
+objective: 0.204
+loss_avg: 0.204
+acc_avg: 0.922
+  y = not blond, male = 0  [n =   3042]:	loss: 0.219	acc: 0.912	
+  y = not blond, male = 1  [n =    174]:	loss: 0.202	acc: 0.943	
+  y =     blond, male = 0  [n =   3008]:	loss: 0.184	acc: 0.935	
+  y =     blond, male = 1  [n =    176]:	loss: 0.298	acc: 0.875	
+objective: 0.197
+loss_avg: 0.197
+acc_avg: 0.924
+  y = not blond, male = 0  [n =   2996]:	loss: 0.232	acc: 0.905	
+  y = not blond, male = 1  [n =    189]:	loss: 0.177	acc: 0.947	
+  y =     blond, male = 0  [n =   3045]:	loss: 0.157	acc: 0.944	
+  y =     blond, male = 1  [n =    170]:	loss: 0.309	acc: 0.882	
+objective: 0.185
+loss_avg: 0.185
+acc_avg: 0.928
+  y = not blond, male = 0  [n =   3011]:	loss: 0.200	acc: 0.918	
+  y = not blond, male = 1  [n =    178]:	loss: 0.098	acc: 0.972	
+  y =     blond, male = 0  [n =   3039]:	loss: 0.171	acc: 0.936	
+  y =     blond, male = 1  [n =    172]:	loss: 0.255	acc: 0.936	
+objective: 0.193
+loss_avg: 0.193
+acc_avg: 0.924
+  y = not blond, male = 0  [n =   3041]:	loss: 0.219	acc: 0.905	
+  y = not blond, male = 1  [n =    187]:	loss: 0.130	acc: 0.963	
+  y =     blond, male = 0  [n =   2999]:	loss: 0.165	acc: 0.945	
+  y =     blond, male = 1  [n =    173]:	loss: 0.281	acc: 0.879	
+objective: 0.193
+loss_avg: 0.193
+acc_avg: 0.928
+  y = not blond, male = 0  [n =   1717]:	loss: 0.218	acc: 0.910	
+  y = not blond, male = 1  [n =     92]:	loss: 0.162	acc: 0.935	
+  y =     blond, male = 0  [n =   1806]:	loss: 0.165	acc: 0.945	
+  y =     blond, male = 1  [n =    119]:	loss: 0.280	acc: 0.916	
+Epoch eval:
+Average acc: 0.923
+  y = not blond, male = 0  [n =  22880]:	acc = 0.910
+  y = not blond, male = 1  [n =   1387]:	acc = 0.948
+  y =     blond, male = 0  [n =  22880]:	acc = 0.936
+  y =     blond, male = 1  [n =   1387]:	acc = 0.902
+Worst-group acc: 0.902
+  y = not blond  [n =  24267]:	acc = 0.912
+  y =     blond  [n =  24267]:	acc = 0.934
+Validation:
+objective: 0.180
+loss_avg: 0.180
+acc_avg: 0.925
+  y = not blond, male = 0  [n =   8535]:	loss: 0.223	acc: 0.900	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.139	acc: 0.947	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.158	acc: 0.942	
+  y =     blond, male = 1  [n =    182]:	loss: 0.316	acc: 0.835	
+Epoch eval:
+Average acc: 0.925
+  y = not blond, male = 0  [n =   8535]:	acc = 0.900
+  y = not blond, male = 1  [n =   8276]:	acc = 0.947
+  y =     blond, male = 0  [n =   2874]:	acc = 0.942
+  y =     blond, male = 1  [n =    182]:	acc = 0.835
+Worst-group acc: 0.835
+  y = not blond  [n =  16811]:	acc = 0.923
+  y =     blond  [n =   3056]:	acc = 0.935
+Validation acc_wg: 0.835
+Epoch [17]:
+Number of training examples: 48534
+Train:
+objective: 0.174
+loss_avg: 0.174
+acc_avg: 0.930
+  y = not blond, male = 0  [n =   2994]:	loss: 0.200	acc: 0.912	
+  y = not blond, male = 1  [n =    171]:	loss: 0.189	acc: 0.924	
+  y =     blond, male = 0  [n =   3037]:	loss: 0.141	acc: 0.948	
+  y =     blond, male = 1  [n =    198]:	loss: 0.266	acc: 0.909	
+objective: 0.175
+loss_avg: 0.175
+acc_avg: 0.932
+  y = not blond, male = 0  [n =   3008]:	loss: 0.196	acc: 0.917	
+  y = not blond, male = 1  [n =    174]:	loss: 0.133	acc: 0.966	
+  y =     blond, male = 0  [n =   3054]:	loss: 0.155	acc: 0.944	
+  y =     blond, male = 1  [n =    164]:	loss: 0.220	acc: 0.951	
+objective: 0.180
+loss_avg: 0.180
+acc_avg: 0.931
+  y = not blond, male = 0  [n =   2972]:	loss: 0.206	acc: 0.915	
+  y = not blond, male = 1  [n =    202]:	loss: 0.082	acc: 0.975	
+  y =     blond, male = 0  [n =   3068]:	loss: 0.158	acc: 0.944	
+  y =     blond, male = 1  [n =    158]:	loss: 0.218	acc: 0.924	
+objective: 0.167
+loss_avg: 0.167
+acc_avg: 0.934
+  y = not blond, male = 0  [n =   3007]:	loss: 0.189	acc: 0.916	
+  y = not blond, male = 1  [n =    168]:	loss: 0.091	acc: 0.976	
+  y =     blond, male = 0  [n =   3045]:	loss: 0.140	acc: 0.952	
+  y =     blond, male = 1  [n =    180]:	loss: 0.313	acc: 0.911	
+objective: 0.166
+loss_avg: 0.166
+acc_avg: 0.939
+  y = not blond, male = 0  [n =   3054]:	loss: 0.193	acc: 0.923	
+  y = not blond, male = 1  [n =    195]:	loss: 0.073	acc: 0.979	
+  y =     blond, male = 0  [n =   2950]:	loss: 0.143	acc: 0.954	
+  y =     blond, male = 1  [n =    201]:	loss: 0.194	acc: 0.935	
+objective: 0.183
+loss_avg: 0.183
+acc_avg: 0.928
+  y = not blond, male = 0  [n =   3028]:	loss: 0.210	acc: 0.911	
+  y = not blond, male = 1  [n =    191]:	loss: 0.158	acc: 0.921	
+  y =     blond, male = 0  [n =   2997]:	loss: 0.147	acc: 0.949	
+  y =     blond, male = 1  [n =    184]:	loss: 0.335	acc: 0.897	
+objective: 0.177
+loss_avg: 0.177
+acc_avg: 0.927
+  y = not blond, male = 0  [n =   3055]:	loss: 0.175	acc: 0.920	
+  y = not blond, male = 1  [n =    167]:	loss: 0.206	acc: 0.946	
+  y =     blond, male = 0  [n =   2979]:	loss: 0.169	acc: 0.935	
+  y =     blond, male = 1  [n =    199]:	loss: 0.298	acc: 0.884	
+objective: 0.186
+loss_avg: 0.186
+acc_avg: 0.930
+  y = not blond, male = 0  [n =   1762]:	loss: 0.217	acc: 0.918	
+  y = not blond, male = 1  [n =    119]:	loss: 0.176	acc: 0.933	
+  y =     blond, male = 0  [n =   1750]:	loss: 0.152	acc: 0.943	
+  y =     blond, male = 1  [n =    103]:	loss: 0.251	acc: 0.893	
+Epoch eval:
+Average acc: 0.931
+  y = not blond, male = 0  [n =  22880]:	acc = 0.916
+  y = not blond, male = 1  [n =   1387]:	acc = 0.954
+  y =     blond, male = 0  [n =  22880]:	acc = 0.946
+  y =     blond, male = 1  [n =   1387]:	acc = 0.913
+Worst-group acc: 0.913
+  y = not blond  [n =  24267]:	acc = 0.919
+  y =     blond  [n =  24267]:	acc = 0.944
+Validation:
+objective: 0.202
+loss_avg: 0.202
+acc_avg: 0.918
+  y = not blond, male = 0  [n =   8535]:	loss: 0.262	acc: 0.887	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.166	acc: 0.935	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.119	acc: 0.959	
+  y =     blond, male = 1  [n =    182]:	loss: 0.254	acc: 0.885	
+Epoch eval:
+Average acc: 0.918
+  y = not blond, male = 0  [n =   8535]:	acc = 0.887
+  y = not blond, male = 1  [n =   8276]:	acc = 0.935
+  y =     blond, male = 0  [n =   2874]:	acc = 0.959
+  y =     blond, male = 1  [n =    182]:	acc = 0.885
+Worst-group acc: 0.885
+  y = not blond  [n =  16811]:	acc = 0.911
+  y =     blond  [n =   3056]:	acc = 0.954
+Validation acc_wg: 0.885
+Epoch [18]:
+Number of training examples: 48534
+Train:
+objective: 0.161
+loss_avg: 0.161
+acc_avg: 0.938
+  y = not blond, male = 0  [n =   3004]:	loss: 0.186	acc: 0.920	
+  y = not blond, male = 1  [n =    184]:	loss: 0.106	acc: 0.967	
+  y =     blond, male = 0  [n =   3032]:	loss: 0.133	acc: 0.954	
+  y =     blond, male = 1  [n =    180]:	loss: 0.250	acc: 0.922	
+objective: 0.171
+loss_avg: 0.171
+acc_avg: 0.931
+  y = not blond, male = 0  [n =   3009]:	loss: 0.191	acc: 0.913	
+  y = not blond, male = 1  [n =    173]:	loss: 0.069	acc: 0.988	
+  y =     blond, male = 0  [n =   3018]:	loss: 0.152	acc: 0.946	
+  y =     blond, male = 1  [n =    200]:	loss: 0.236	acc: 0.930	
+objective: 0.169
+loss_avg: 0.169
+acc_avg: 0.933
+  y = not blond, male = 0  [n =   3034]:	loss: 0.184	acc: 0.921	
+  y = not blond, male = 1  [n =    200]:	loss: 0.176	acc: 0.925	
+  y =     blond, male = 0  [n =   2993]:	loss: 0.149	acc: 0.947	
+  y =     blond, male = 1  [n =    173]:	loss: 0.237	acc: 0.919	
+objective: 0.166
+loss_avg: 0.166
+acc_avg: 0.934
+  y = not blond, male = 0  [n =   3030]:	loss: 0.181	acc: 0.922	
+  y = not blond, male = 1  [n =    173]:	loss: 0.137	acc: 0.948	
+  y =     blond, male = 0  [n =   3022]:	loss: 0.147	acc: 0.947	
+  y =     blond, male = 1  [n =    175]:	loss: 0.247	acc: 0.914	
+objective: 0.162
+loss_avg: 0.162
+acc_avg: 0.938
+  y = not blond, male = 0  [n =   3006]:	loss: 0.179	acc: 0.925	
+  y = not blond, male = 1  [n =    196]:	loss: 0.074	acc: 0.980	
+  y =     blond, male = 0  [n =   3012]:	loss: 0.142	acc: 0.949	
+  y =     blond, male = 1  [n =    186]:	loss: 0.310	acc: 0.903	
+objective: 0.164
+loss_avg: 0.164
+acc_avg: 0.936
+  y = not blond, male = 0  [n =   3021]:	loss: 0.195	acc: 0.916	
+  y = not blond, male = 1  [n =    184]:	loss: 0.104	acc: 0.962	
+  y =     blond, male = 0  [n =   3008]:	loss: 0.132	acc: 0.954	
+  y =     blond, male = 1  [n =    187]:	loss: 0.249	acc: 0.920	
+objective: 0.161
+loss_avg: 0.161
+acc_avg: 0.936
+  y = not blond, male = 0  [n =   3003]:	loss: 0.179	acc: 0.924	
+  y = not blond, male = 1  [n =    190]:	loss: 0.191	acc: 0.947	
+  y =     blond, male = 0  [n =   3026]:	loss: 0.135	acc: 0.951	
+  y =     blond, male = 1  [n =    181]:	loss: 0.270	acc: 0.890	
+objective: 0.171
+loss_avg: 0.171
+acc_avg: 0.936
+  y = not blond, male = 0  [n =   1773]:	loss: 0.182	acc: 0.919	
+  y = not blond, male = 1  [n =     87]:	loss: 0.150	acc: 0.966	
+  y =     blond, male = 0  [n =   1769]:	loss: 0.155	acc: 0.953	
+  y =     blond, male = 1  [n =    105]:	loss: 0.268	acc: 0.905	
+Epoch eval:
+Average acc: 0.935
+  y = not blond, male = 0  [n =  22880]:	acc = 0.920
+  y = not blond, male = 1  [n =   1387]:	acc = 0.960
+  y =     blond, male = 0  [n =  22880]:	acc = 0.950
+  y =     blond, male = 1  [n =   1387]:	acc = 0.913
+Worst-group acc: 0.913
+  y = not blond  [n =  24267]:	acc = 0.922
+  y =     blond  [n =  24267]:	acc = 0.948
+Validation:
+objective: 0.183
+loss_avg: 0.183
+acc_avg: 0.926
+  y = not blond, male = 0  [n =   8535]:	loss: 0.241	acc: 0.901	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.139	acc: 0.944	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.129	acc: 0.953	
+  y =     blond, male = 1  [n =    182]:	loss: 0.301	acc: 0.830	
+Epoch eval:
+Average acc: 0.926
+  y = not blond, male = 0  [n =   8535]:	acc = 0.901
+  y = not blond, male = 1  [n =   8276]:	acc = 0.944
+  y =     blond, male = 0  [n =   2874]:	acc = 0.953
+  y =     blond, male = 1  [n =    182]:	acc = 0.830
+Worst-group acc: 0.830
+  y = not blond  [n =  16811]:	acc = 0.922
+  y =     blond  [n =   3056]:	acc = 0.946
+Validation acc_wg: 0.830
+Epoch [19]:
+Number of training examples: 48534
+Train:
+objective: 0.155
+loss_avg: 0.155
+acc_avg: 0.940
+  y = not blond, male = 0  [n =   3006]:	loss: 0.171	acc: 0.922	
+  y = not blond, male = 1  [n =    198]:	loss: 0.182	acc: 0.934	
+  y =     blond, male = 0  [n =   3011]:	loss: 0.131	acc: 0.958	
+  y =     blond, male = 1  [n =    185]:	loss: 0.251	acc: 0.914	
+objective: 0.149
+loss_avg: 0.149
+acc_avg: 0.943
+  y = not blond, male = 0  [n =   2997]:	loss: 0.167	acc: 0.926	
+  y = not blond, male = 1  [n =    174]:	loss: 0.103	acc: 0.966	
+  y =     blond, male = 0  [n =   3038]:	loss: 0.127	acc: 0.959	
+  y =     blond, male = 1  [n =    191]:	loss: 0.236	acc: 0.932	
+objective: 0.162
+loss_avg: 0.162
+acc_avg: 0.937
+  y = not blond, male = 0  [n =   3048]:	loss: 0.170	acc: 0.925	
+  y = not blond, male = 1  [n =    193]:	loss: 0.135	acc: 0.938	
+  y =     blond, male = 0  [n =   2980]:	loss: 0.150	acc: 0.952	
+  y =     blond, male = 1  [n =    179]:	loss: 0.279	acc: 0.899	
+objective: 0.158
+loss_avg: 0.158
+acc_avg: 0.936
+  y = not blond, male = 0  [n =   2989]:	loss: 0.170	acc: 0.926	
+  y = not blond, male = 1  [n =    193]:	loss: 0.128	acc: 0.959	
+  y =     blond, male = 0  [n =   3026]:	loss: 0.144	acc: 0.947	
+  y =     blond, male = 1  [n =    192]:	loss: 0.233	acc: 0.901	
+objective: 0.145
+loss_avg: 0.145
+acc_avg: 0.945
+  y = not blond, male = 0  [n =   3018]:	loss: 0.171	acc: 0.927	
+  y = not blond, male = 1  [n =    186]:	loss: 0.121	acc: 0.952	
+  y =     blond, male = 0  [n =   3014]:	loss: 0.117	acc: 0.961	
+  y =     blond, male = 1  [n =    182]:	loss: 0.217	acc: 0.945	
+objective: 0.145
+loss_avg: 0.145
+acc_avg: 0.942
+  y = not blond, male = 0  [n =   3006]:	loss: 0.161	acc: 0.929	
+  y = not blond, male = 1  [n =    181]:	loss: 0.066	acc: 0.983	
+  y =     blond, male = 0  [n =   3045]:	loss: 0.128	acc: 0.954	
+  y =     blond, male = 1  [n =    168]:	loss: 0.228	acc: 0.935	
+objective: 0.155
+loss_avg: 0.155
+acc_avg: 0.940
+  y = not blond, male = 0  [n =   3028]:	loss: 0.170	acc: 0.928	
+  y = not blond, male = 1  [n =    169]:	loss: 0.084	acc: 0.976	
+  y =     blond, male = 0  [n =   3025]:	loss: 0.136	acc: 0.952	
+  y =     blond, male = 1  [n =    178]:	loss: 0.289	acc: 0.893	
+objective: 0.159
+loss_avg: 0.159
+acc_avg: 0.939
+  y = not blond, male = 0  [n =   1788]:	loss: 0.186	acc: 0.923	
+  y = not blond, male = 1  [n =     93]:	loss: 0.048	acc: 1.000	
+  y =     blond, male = 0  [n =   1741]:	loss: 0.136	acc: 0.952	
+  y =     blond, male = 1  [n =    112]:	loss: 0.181	acc: 0.938	
+Epoch eval:
+Average acc: 0.940
+  y = not blond, male = 0  [n =  22880]:	acc = 0.926
+  y = not blond, male = 1  [n =   1387]:	acc = 0.960
+  y =     blond, male = 0  [n =  22880]:	acc = 0.955
+  y =     blond, male = 1  [n =   1387]:	acc = 0.919
+Worst-group acc: 0.919
+  y = not blond  [n =  24267]:	acc = 0.928
+  y =     blond  [n =  24267]:	acc = 0.953
+Validation:
+objective: 0.159
+loss_avg: 0.159
+acc_avg: 0.935
+  y = not blond, male = 0  [n =   8535]:	loss: 0.196	acc: 0.918	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.114	acc: 0.954	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.165	acc: 0.938	
+  y =     blond, male = 1  [n =    182]:	loss: 0.373	acc: 0.819	
+Epoch eval:
+Average acc: 0.935
+  y = not blond, male = 0  [n =   8535]:	acc = 0.918
+  y = not blond, male = 1  [n =   8276]:	acc = 0.954
+  y =     blond, male = 0  [n =   2874]:	acc = 0.938
+  y =     blond, male = 1  [n =    182]:	acc = 0.819
+Worst-group acc: 0.819
+  y = not blond  [n =  16811]:	acc = 0.936
+  y =     blond  [n =   3056]:	acc = 0.931
+Validation acc_wg: 0.819
+Epoch [20]:
+Number of training examples: 48534
+Train:
+objective: 0.139
+loss_avg: 0.139
+acc_avg: 0.945
+  y = not blond, male = 0  [n =   3022]:	loss: 0.153	acc: 0.934	
+  y = not blond, male = 1  [n =    165]:	loss: 0.094	acc: 0.958	
+  y =     blond, male = 0  [n =   3029]:	loss: 0.124	acc: 0.957	
+  y =     blond, male = 1  [n =    184]:	loss: 0.208	acc: 0.902	
+objective: 0.136
+loss_avg: 0.136
+acc_avg: 0.948
+  y = not blond, male = 0  [n =   3001]:	loss: 0.154	acc: 0.936	
+  y = not blond, male = 1  [n =    181]:	loss: 0.093	acc: 0.961	
+  y =     blond, male = 0  [n =   3041]:	loss: 0.120	acc: 0.958	
+  y =     blond, male = 1  [n =    177]:	loss: 0.160	acc: 0.955	
+objective: 0.136
+loss_avg: 0.136
+acc_avg: 0.945
+  y = not blond, male = 0  [n =   3036]:	loss: 0.145	acc: 0.936	
+  y = not blond, male = 1  [n =    189]:	loss: 0.113	acc: 0.958	
+  y =     blond, male = 0  [n =   2995]:	loss: 0.124	acc: 0.954	
+  y =     blond, male = 1  [n =    180]:	loss: 0.207	acc: 0.944	
+objective: 0.140
+loss_avg: 0.140
+acc_avg: 0.948
+  y = not blond, male = 0  [n =   3083]:	loss: 0.154	acc: 0.940	
+  y = not blond, male = 1  [n =    183]:	loss: 0.145	acc: 0.940	
+  y =     blond, male = 0  [n =   2986]:	loss: 0.126	acc: 0.955	
+  y =     blond, male = 1  [n =    148]:	loss: 0.133	acc: 0.966	
+objective: 0.144
+loss_avg: 0.144
+acc_avg: 0.943
+  y = not blond, male = 0  [n =   3014]:	loss: 0.147	acc: 0.933	
+  y = not blond, male = 1  [n =    191]:	loss: 0.123	acc: 0.958	
+  y =     blond, male = 0  [n =   3000]:	loss: 0.135	acc: 0.953	
+  y =     blond, male = 1  [n =    195]:	loss: 0.242	acc: 0.928	
+objective: 0.140
+loss_avg: 0.140
+acc_avg: 0.943
+  y = not blond, male = 0  [n =   2998]:	loss: 0.161	acc: 0.930	
+  y = not blond, male = 1  [n =    182]:	loss: 0.074	acc: 0.978	
+  y =     blond, male = 0  [n =   3009]:	loss: 0.115	acc: 0.957	
+  y =     blond, male = 1  [n =    211]:	loss: 0.267	acc: 0.905	
+objective: 0.147
+loss_avg: 0.147
+acc_avg: 0.942
+  y = not blond, male = 0  [n =   2995]:	loss: 0.157	acc: 0.932	
+  y = not blond, male = 1  [n =    198]:	loss: 0.085	acc: 0.965	
+  y =     blond, male = 0  [n =   3027]:	loss: 0.138	acc: 0.951	
+  y =     blond, male = 1  [n =    180]:	loss: 0.214	acc: 0.928	
+objective: 0.148
+loss_avg: 0.148
+acc_avg: 0.942
+  y = not blond, male = 0  [n =   1731]:	loss: 0.176	acc: 0.928	
+  y = not blond, male = 1  [n =     98]:	loss: 0.108	acc: 0.969	
+  y =     blond, male = 0  [n =   1793]:	loss: 0.117	acc: 0.959	
+  y =     blond, male = 1  [n =    112]:	loss: 0.243	acc: 0.875	
+Epoch eval:
+Average acc: 0.945
+  y = not blond, male = 0  [n =  22880]:	acc = 0.934
+  y = not blond, male = 1  [n =   1387]:	acc = 0.960
+  y =     blond, male = 0  [n =  22880]:	acc = 0.955
+  y =     blond, male = 1  [n =   1387]:	acc = 0.926
+Worst-group acc: 0.926
+  y = not blond  [n =  24267]:	acc = 0.936
+  y =     blond  [n =  24267]:	acc = 0.954
+Validation:
+objective: 0.182
+loss_avg: 0.182
+acc_avg: 0.927
+  y = not blond, male = 0  [n =   8535]:	loss: 0.235	acc: 0.905	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.138	acc: 0.944	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.139	acc: 0.946	
+  y =     blond, male = 1  [n =    182]:	loss: 0.317	acc: 0.841	
+Epoch eval:
+Average acc: 0.927
+  y = not blond, male = 0  [n =   8535]:	acc = 0.905
+  y = not blond, male = 1  [n =   8276]:	acc = 0.944
+  y =     blond, male = 0  [n =   2874]:	acc = 0.946
+  y =     blond, male = 1  [n =    182]:	acc = 0.841
+Worst-group acc: 0.841
+  y = not blond  [n =  16811]:	acc = 0.924
+  y =     blond  [n =   3056]:	acc = 0.940
+Validation acc_wg: 0.841
+Epoch [21]:
+Number of training examples: 48534
+Train:
+objective: 0.128
+loss_avg: 0.128
+acc_avg: 0.954
+  y = not blond, male = 0  [n =   3025]:	loss: 0.145	acc: 0.940	
+  y = not blond, male = 1  [n =    177]:	loss: 0.090	acc: 0.972	
+  y =     blond, male = 0  [n =   3011]:	loss: 0.112	acc: 0.966	
+  y =     blond, male = 1  [n =    187]:	loss: 0.149	acc: 0.957	
+objective: 0.140
+loss_avg: 0.140
+acc_avg: 0.946
+  y = not blond, male = 0  [n =   3080]:	loss: 0.146	acc: 0.939	
+  y = not blond, male = 1  [n =    160]:	loss: 0.084	acc: 0.975	
+  y =     blond, male = 0  [n =   2977]:	loss: 0.132	acc: 0.953	
+  y =     blond, male = 1  [n =    183]:	loss: 0.222	acc: 0.913	
+objective: 0.125
+loss_avg: 0.125
+acc_avg: 0.950
+  y = not blond, male = 0  [n =   3016]:	loss: 0.133	acc: 0.943	
+  y = not blond, male = 1  [n =    193]:	loss: 0.107	acc: 0.969	
+  y =     blond, male = 0  [n =   3017]:	loss: 0.114	acc: 0.959	
+  y =     blond, male = 1  [n =    174]:	loss: 0.199	acc: 0.925	
+objective: 0.129
+loss_avg: 0.129
+acc_avg: 0.950
+  y = not blond, male = 0  [n =   3052]:	loss: 0.148	acc: 0.936	
+  y = not blond, male = 1  [n =    179]:	loss: 0.062	acc: 0.978	
+  y =     blond, male = 0  [n =   2978]:	loss: 0.110	acc: 0.961	
+  y =     blond, male = 1  [n =    191]:	loss: 0.180	acc: 0.963	
+objective: 0.121
+loss_avg: 0.121
+acc_avg: 0.953
+  y = not blond, male = 0  [n =   2948]:	loss: 0.135	acc: 0.941	
+  y = not blond, male = 1  [n =    206]:	loss: 0.083	acc: 0.981	
+  y =     blond, male = 0  [n =   3063]:	loss: 0.109	acc: 0.961	
+  y =     blond, male = 1  [n =    183]:	loss: 0.130	acc: 0.967	
+objective: 0.119
+loss_avg: 0.119
+acc_avg: 0.957
+  y = not blond, male = 0  [n =   2991]:	loss: 0.130	acc: 0.947	
+  y = not blond, male = 1  [n =    184]:	loss: 0.126	acc: 0.957	
+  y =     blond, male = 0  [n =   3043]:	loss: 0.105	acc: 0.966	
+  y =     blond, male = 1  [n =    182]:	loss: 0.156	acc: 0.962	
+objective: 0.119
+loss_avg: 0.119
+acc_avg: 0.956
+  y = not blond, male = 0  [n =   3020]:	loss: 0.121	acc: 0.949	
+  y = not blond, male = 1  [n =    181]:	loss: 0.115	acc: 0.956	
+  y =     blond, male = 0  [n =   3028]:	loss: 0.112	acc: 0.965	
+  y =     blond, male = 1  [n =    171]:	loss: 0.213	acc: 0.930	
+objective: 0.120
+loss_avg: 0.120
+acc_avg: 0.952
+  y = not blond, male = 0  [n =   1748]:	loss: 0.133	acc: 0.938	
+  y = not blond, male = 1  [n =    107]:	loss: 0.163	acc: 0.944	
+  y =     blond, male = 0  [n =   1763]:	loss: 0.099	acc: 0.966	
+  y =     blond, male = 1  [n =    116]:	loss: 0.193	acc: 0.940	
+Epoch eval:
+Average acc: 0.952
+  y = not blond, male = 0  [n =  22880]:	acc = 0.942
+  y = not blond, male = 1  [n =   1387]:	acc = 0.968
+  y =     blond, male = 0  [n =  22880]:	acc = 0.962
+  y =     blond, male = 1  [n =   1387]:	acc = 0.945
+Worst-group acc: 0.942
+  y = not blond  [n =  24267]:	acc = 0.943
+  y =     blond  [n =  24267]:	acc = 0.961
+Validation:
+objective: 0.161
+loss_avg: 0.161
+acc_avg: 0.937
+  y = not blond, male = 0  [n =   8535]:	loss: 0.202	acc: 0.923	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.104	acc: 0.959	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.179	acc: 0.927	
+  y =     blond, male = 1  [n =    182]:	loss: 0.478	acc: 0.791	
+Epoch eval:
+Average acc: 0.937
+  y = not blond, male = 0  [n =   8535]:	acc = 0.923
+  y = not blond, male = 1  [n =   8276]:	acc = 0.959
+  y =     blond, male = 0  [n =   2874]:	acc = 0.927
+  y =     blond, male = 1  [n =    182]:	acc = 0.791
+Worst-group acc: 0.791
+  y = not blond  [n =  16811]:	acc = 0.941
+  y =     blond  [n =   3056]:	acc = 0.919
+Validation acc_wg: 0.791
+Epoch [22]:
+Number of training examples: 48534
+Train:
+objective: 0.111
+loss_avg: 0.111
+acc_avg: 0.960
+  y = not blond, male = 0  [n =   3023]:	loss: 0.123	acc: 0.950	
+  y = not blond, male = 1  [n =    191]:	loss: 0.074	acc: 0.979	
+  y =     blond, male = 0  [n =   2980]:	loss: 0.100	acc: 0.968	
+  y =     blond, male = 1  [n =    206]:	loss: 0.136	acc: 0.961	
+objective: 0.105
+loss_avg: 0.105
+acc_avg: 0.958
+  y = not blond, male = 0  [n =   3007]:	loss: 0.107	acc: 0.953	
+  y = not blond, male = 1  [n =    197]:	loss: 0.076	acc: 0.970	
+  y =     blond, male = 0  [n =   3033]:	loss: 0.101	acc: 0.963	
+  y =     blond, male = 1  [n =    163]:	loss: 0.172	acc: 0.939	
+objective: 0.113
+loss_avg: 0.113
+acc_avg: 0.957
+  y = not blond, male = 0  [n =   3009]:	loss: 0.132	acc: 0.945	
+  y = not blond, male = 1  [n =    181]:	loss: 0.069	acc: 0.978	
+  y =     blond, male = 0  [n =   3049]:	loss: 0.092	acc: 0.968	
+  y =     blond, male = 1  [n =    161]:	loss: 0.200	acc: 0.925	
+objective: 0.117
+loss_avg: 0.117
+acc_avg: 0.956
+  y = not blond, male = 0  [n =   3001]:	loss: 0.132	acc: 0.946	
+  y = not blond, male = 1  [n =    182]:	loss: 0.083	acc: 0.967	
+  y =     blond, male = 0  [n =   3039]:	loss: 0.103	acc: 0.966	
+  y =     blond, male = 1  [n =    178]:	loss: 0.146	acc: 0.944	
+objective: 0.105
+loss_avg: 0.105
+acc_avg: 0.961
+  y = not blond, male = 0  [n =   3014]:	loss: 0.111	acc: 0.956	
+  y = not blond, male = 1  [n =    186]:	loss: 0.089	acc: 0.973	
+  y =     blond, male = 0  [n =   3006]:	loss: 0.097	acc: 0.967	
+  y =     blond, male = 1  [n =    194]:	loss: 0.164	acc: 0.938	
+objective: 0.108
+loss_avg: 0.108
+acc_avg: 0.959
+  y = not blond, male = 0  [n =   3057]:	loss: 0.117	acc: 0.953	
+  y = not blond, male = 1  [n =    163]:	loss: 0.082	acc: 0.969	
+  y =     blond, male = 0  [n =   2999]:	loss: 0.099	acc: 0.965	
+  y =     blond, male = 1  [n =    181]:	loss: 0.131	acc: 0.939	
+objective: 0.117
+loss_avg: 0.117
+acc_avg: 0.957
+  y = not blond, male = 0  [n =   3014]:	loss: 0.124	acc: 0.952	
+  y = not blond, male = 1  [n =    180]:	loss: 0.108	acc: 0.961	
+  y =     blond, male = 0  [n =   3010]:	loss: 0.109	acc: 0.963	
+  y =     blond, male = 1  [n =    196]:	loss: 0.153	acc: 0.949	
+objective: 0.120
+loss_avg: 0.120
+acc_avg: 0.954
+  y = not blond, male = 0  [n =   1755]:	loss: 0.133	acc: 0.944	
+  y = not blond, male = 1  [n =    107]:	loss: 0.101	acc: 0.972	
+  y =     blond, male = 0  [n =   1764]:	loss: 0.109	acc: 0.961	
+  y =     blond, male = 1  [n =    108]:	loss: 0.098	acc: 0.981	
+Epoch eval:
+Average acc: 0.958
+  y = not blond, male = 0  [n =  22880]:	acc = 0.950
+  y = not blond, male = 1  [n =   1387]:	acc = 0.971
+  y =     blond, male = 0  [n =  22880]:	acc = 0.965
+  y =     blond, male = 1  [n =   1387]:	acc = 0.946
+Worst-group acc: 0.946
+  y = not blond  [n =  24267]:	acc = 0.951
+  y =     blond  [n =  24267]:	acc = 0.964
+Validation:
+objective: 0.162
+loss_avg: 0.162
+acc_avg: 0.937
+  y = not blond, male = 0  [n =   8535]:	loss: 0.197	acc: 0.925	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.103	acc: 0.959	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.206	acc: 0.919	
+  y =     blond, male = 1  [n =    182]:	loss: 0.508	acc: 0.797	
+Epoch eval:
+Average acc: 0.937
+  y = not blond, male = 0  [n =   8535]:	acc = 0.925
+  y = not blond, male = 1  [n =   8276]:	acc = 0.959
+  y =     blond, male = 0  [n =   2874]:	acc = 0.919
+  y =     blond, male = 1  [n =    182]:	acc = 0.797
+Worst-group acc: 0.797
+  y = not blond  [n =  16811]:	acc = 0.942
+  y =     blond  [n =   3056]:	acc = 0.911
+Validation acc_wg: 0.797
+Epoch [23]:
+Number of training examples: 48534
+Train:
+objective: 0.092
+loss_avg: 0.092
+acc_avg: 0.966
+  y = not blond, male = 0  [n =   3030]:	loss: 0.095	acc: 0.960	
+  y = not blond, male = 1  [n =    174]:	loss: 0.087	acc: 0.971	
+  y =     blond, male = 0  [n =   3014]:	loss: 0.086	acc: 0.972	
+  y =     blond, male = 1  [n =    182]:	loss: 0.127	acc: 0.956	
+objective: 0.093
+loss_avg: 0.093
+acc_avg: 0.967
+  y = not blond, male = 0  [n =   2995]:	loss: 0.104	acc: 0.959	
+  y = not blond, male = 1  [n =    176]:	loss: 0.059	acc: 0.983	
+  y =     blond, male = 0  [n =   3045]:	loss: 0.083	acc: 0.974	
+  y =     blond, male = 1  [n =    184]:	loss: 0.105	acc: 0.967	
+objective: 0.099
+loss_avg: 0.099
+acc_avg: 0.963
+  y = not blond, male = 0  [n =   2986]:	loss: 0.110	acc: 0.957	
+  y = not blond, male = 1  [n =    184]:	loss: 0.069	acc: 0.967	
+  y =     blond, male = 0  [n =   3033]:	loss: 0.087	acc: 0.970	
+  y =     blond, male = 1  [n =    197]:	loss: 0.149	acc: 0.939	
+objective: 0.094
+loss_avg: 0.094
+acc_avg: 0.964
+  y = not blond, male = 0  [n =   3045]:	loss: 0.089	acc: 0.965	
+  y = not blond, male = 1  [n =    175]:	loss: 0.061	acc: 0.966	
+  y =     blond, male = 0  [n =   3016]:	loss: 0.100	acc: 0.964	
+  y =     blond, male = 1  [n =    164]:	loss: 0.133	acc: 0.945	
+objective: 0.097
+loss_avg: 0.097
+acc_avg: 0.963
+  y = not blond, male = 0  [n =   3005]:	loss: 0.111	acc: 0.957	
+  y = not blond, male = 1  [n =    204]:	loss: 0.058	acc: 0.980	
+  y =     blond, male = 0  [n =   2988]:	loss: 0.081	acc: 0.970	
+  y =     blond, male = 1  [n =    203]:	loss: 0.156	acc: 0.941	
+objective: 0.093
+loss_avg: 0.093
+acc_avg: 0.964
+  y = not blond, male = 0  [n =   3039]:	loss: 0.102	acc: 0.959	
+  y = not blond, male = 1  [n =    179]:	loss: 0.059	acc: 0.966	
+  y =     blond, male = 0  [n =   3013]:	loss: 0.082	acc: 0.971	
+  y =     blond, male = 1  [n =    169]:	loss: 0.158	acc: 0.941	
+objective: 0.084
+loss_avg: 0.084
+acc_avg: 0.968
+  y = not blond, male = 0  [n =   3045]:	loss: 0.085	acc: 0.964	
+  y = not blond, male = 1  [n =    175]:	loss: 0.059	acc: 0.977	
+  y =     blond, male = 0  [n =   3006]:	loss: 0.085	acc: 0.971	
+  y =     blond, male = 1  [n =    174]:	loss: 0.075	acc: 0.983	
+objective: 0.087
+loss_avg: 0.087
+acc_avg: 0.967
+  y = not blond, male = 0  [n =   1735]:	loss: 0.097	acc: 0.961	
+  y = not blond, male = 1  [n =    120]:	loss: 0.107	acc: 0.958	
+  y =     blond, male = 0  [n =   1765]:	loss: 0.077	acc: 0.973	
+  y =     blond, male = 1  [n =    114]:	loss: 0.078	acc: 0.974	
+Epoch eval:
+Average acc: 0.965
+  y = not blond, male = 0  [n =  22880]:	acc = 0.960
+  y = not blond, male = 1  [n =   1387]:	acc = 0.972
+  y =     blond, male = 0  [n =  22880]:	acc = 0.971
+  y =     blond, male = 1  [n =   1387]:	acc = 0.955
+Worst-group acc: 0.955
+  y = not blond  [n =  24267]:	acc = 0.961
+  y =     blond  [n =  24267]:	acc = 0.970
+Validation:
+objective: 0.184
+loss_avg: 0.184
+acc_avg: 0.933
+  y = not blond, male = 0  [n =   8535]:	loss: 0.242	acc: 0.917	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.118	acc: 0.955	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.185	acc: 0.930	
+  y =     blond, male = 1  [n =    182]:	loss: 0.482	acc: 0.797	
+Epoch eval:
+Average acc: 0.933
+  y = not blond, male = 0  [n =   8535]:	acc = 0.917
+  y = not blond, male = 1  [n =   8276]:	acc = 0.955
+  y =     blond, male = 0  [n =   2874]:	acc = 0.930
+  y =     blond, male = 1  [n =    182]:	acc = 0.797
+Worst-group acc: 0.797
+  y = not blond  [n =  16811]:	acc = 0.935
+  y =     blond  [n =   3056]:	acc = 0.922
+Validation acc_wg: 0.797
+Epoch [24]:
+Number of training examples: 48534
+Train:
+objective: 0.069
+loss_avg: 0.069
+acc_avg: 0.977
+  y = not blond, male = 0  [n =   3031]:	loss: 0.067	acc: 0.977	
+  y = not blond, male = 1  [n =    167]:	loss: 0.045	acc: 0.988	
+  y =     blond, male = 0  [n =   3022]:	loss: 0.071	acc: 0.977	
+  y =     blond, male = 1  [n =    180]:	loss: 0.086	acc: 0.983	
+objective: 0.077
+loss_avg: 0.077
+acc_avg: 0.974
+  y = not blond, male = 0  [n =   2965]:	loss: 0.087	acc: 0.968	
+  y = not blond, male = 1  [n =    184]:	loss: 0.060	acc: 0.984	
+  y =     blond, male = 0  [n =   3059]:	loss: 0.068	acc: 0.979	
+  y =     blond, male = 1  [n =    192]:	loss: 0.092	acc: 0.964	
+objective: 0.073
+loss_avg: 0.073
+acc_avg: 0.974
+  y = not blond, male = 0  [n =   3024]:	loss: 0.076	acc: 0.971	
+  y = not blond, male = 1  [n =    207]:	loss: 0.046	acc: 0.986	
+  y =     blond, male = 0  [n =   2987]:	loss: 0.072	acc: 0.976	
+  y =     blond, male = 1  [n =    182]:	loss: 0.101	acc: 0.962	
+objective: 0.066
+loss_avg: 0.066
+acc_avg: 0.977
+  y = not blond, male = 0  [n =   2963]:	loss: 0.072	acc: 0.973	
+  y = not blond, male = 1  [n =    188]:	loss: 0.069	acc: 0.968	
+  y =     blond, male = 0  [n =   3069]:	loss: 0.058	acc: 0.981	
+  y =     blond, male = 1  [n =    180]:	loss: 0.097	acc: 0.967	
+objective: 0.075
+loss_avg: 0.075
+acc_avg: 0.974
+  y = not blond, male = 0  [n =   3016]:	loss: 0.075	acc: 0.974	
+  y = not blond, male = 1  [n =    183]:	loss: 0.064	acc: 0.973	
+  y =     blond, male = 0  [n =   3024]:	loss: 0.075	acc: 0.973	
+  y =     blond, male = 1  [n =    177]:	loss: 0.093	acc: 0.972	
+objective: 0.068
+loss_avg: 0.068
+acc_avg: 0.976
+  y = not blond, male = 0  [n =   3033]:	loss: 0.073	acc: 0.973	
+  y = not blond, male = 1  [n =    179]:	loss: 0.031	acc: 0.994	
+  y =     blond, male = 0  [n =   3022]:	loss: 0.065	acc: 0.977	
+  y =     blond, male = 1  [n =    166]:	loss: 0.070	acc: 0.988	
+objective: 0.069
+loss_avg: 0.069
+acc_avg: 0.974
+  y = not blond, male = 0  [n =   3094]:	loss: 0.075	acc: 0.969	
+  y = not blond, male = 1  [n =    177]:	loss: 0.039	acc: 0.983	
+  y =     blond, male = 0  [n =   2928]:	loss: 0.064	acc: 0.978	
+  y =     blond, male = 1  [n =    201]:	loss: 0.091	acc: 0.970	
+objective: 0.068
+loss_avg: 0.068
+acc_avg: 0.977
+  y = not blond, male = 0  [n =   1754]:	loss: 0.069	acc: 0.975	
+  y = not blond, male = 1  [n =    102]:	loss: 0.054	acc: 0.980	
+  y =     blond, male = 0  [n =   1769]:	loss: 0.066	acc: 0.979	
+  y =     blond, male = 1  [n =    109]:	loss: 0.094	acc: 0.972	
+Epoch eval:
+Average acc: 0.975
+  y = not blond, male = 0  [n =  22880]:	acc = 0.973
+  y = not blond, male = 1  [n =   1387]:	acc = 0.982
+  y =     blond, male = 0  [n =  22880]:	acc = 0.978
+  y =     blond, male = 1  [n =   1387]:	acc = 0.972
+Worst-group acc: 0.972
+  y = not blond  [n =  24267]:	acc = 0.973
+  y =     blond  [n =  24267]:	acc = 0.977
+Validation:
+objective: 0.213
+loss_avg: 0.213
+acc_avg: 0.930
+  y = not blond, male = 0  [n =   8535]:	loss: 0.272	acc: 0.914	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.148	acc: 0.951	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.206	acc: 0.925	
+  y =     blond, male = 1  [n =    182]:	loss: 0.525	acc: 0.802	
+Epoch eval:
+Average acc: 0.930
+  y = not blond, male = 0  [n =   8535]:	acc = 0.914
+  y = not blond, male = 1  [n =   8276]:	acc = 0.951
+  y =     blond, male = 0  [n =   2874]:	acc = 0.925
+  y =     blond, male = 1  [n =    182]:	acc = 0.802
+Worst-group acc: 0.802
+  y = not blond  [n =  16811]:	acc = 0.932
+  y =     blond  [n =   3056]:	acc = 0.918
+Validation acc_wg: 0.802
+Epoch [25]:
+Number of training examples: 48534
+Train:
+objective: 0.056
+loss_avg: 0.056
+acc_avg: 0.982
+  y = not blond, male = 0  [n =   3015]:	loss: 0.063	acc: 0.979	
+  y = not blond, male = 1  [n =    179]:	loss: 0.054	acc: 0.989	
+  y =     blond, male = 0  [n =   3016]:	loss: 0.050	acc: 0.985	
+  y =     blond, male = 1  [n =    190]:	loss: 0.052	acc: 0.984	
+objective: 0.055
+loss_avg: 0.055
+acc_avg: 0.982
+  y = not blond, male = 0  [n =   3008]:	loss: 0.061	acc: 0.979	
+  y = not blond, male = 1  [n =    165]:	loss: 0.024	acc: 0.994	
+  y =     blond, male = 0  [n =   3061]:	loss: 0.050	acc: 0.986	
+  y =     blond, male = 1  [n =    166]:	loss: 0.072	acc: 0.976	
+objective: 0.059
+loss_avg: 0.059
+acc_avg: 0.980
+  y = not blond, male = 0  [n =   2974]:	loss: 0.064	acc: 0.978	
+  y = not blond, male = 1  [n =    201]:	loss: 0.039	acc: 0.985	
+  y =     blond, male = 0  [n =   3044]:	loss: 0.055	acc: 0.983	
+  y =     blond, male = 1  [n =    181]:	loss: 0.066	acc: 0.967	
+objective: 0.059
+loss_avg: 0.059
+acc_avg: 0.981
+  y = not blond, male = 0  [n =   3046]:	loss: 0.061	acc: 0.979	
+  y = not blond, male = 1  [n =    197]:	loss: 0.031	acc: 0.990	
+  y =     blond, male = 0  [n =   2974]:	loss: 0.059	acc: 0.983	
+  y =     blond, male = 1  [n =    183]:	loss: 0.046	acc: 0.984	
+objective: 0.050
+loss_avg: 0.050
+acc_avg: 0.983
+  y = not blond, male = 0  [n =   3052]:	loss: 0.052	acc: 0.981	
+  y = not blond, male = 1  [n =    179]:	loss: 0.052	acc: 0.983	
+  y =     blond, male = 0  [n =   2962]:	loss: 0.046	acc: 0.985	
+  y =     blond, male = 1  [n =    207]:	loss: 0.073	acc: 0.971	
+objective: 0.051
+loss_avg: 0.051
+acc_avg: 0.983
+  y = not blond, male = 0  [n =   3009]:	loss: 0.057	acc: 0.980	
+  y = not blond, male = 1  [n =    192]:	loss: 0.034	acc: 0.990	
+  y =     blond, male = 0  [n =   3008]:	loss: 0.047	acc: 0.984	
+  y =     blond, male = 1  [n =    191]:	loss: 0.033	acc: 0.995	
+objective: 0.055
+loss_avg: 0.055
+acc_avg: 0.983
+  y = not blond, male = 0  [n =   3048]:	loss: 0.057	acc: 0.982	
+  y = not blond, male = 1  [n =    170]:	loss: 0.048	acc: 0.976	
+  y =     blond, male = 0  [n =   3002]:	loss: 0.054	acc: 0.984	
+  y =     blond, male = 1  [n =    180]:	loss: 0.054	acc: 0.983	
+objective: 0.059
+loss_avg: 0.059
+acc_avg: 0.977
+  y = not blond, male = 0  [n =   1728]:	loss: 0.056	acc: 0.977	
+  y = not blond, male = 1  [n =    104]:	loss: 0.057	acc: 0.981	
+  y =     blond, male = 0  [n =   1813]:	loss: 0.061	acc: 0.977	
+  y =     blond, male = 1  [n =     89]:	loss: 0.090	acc: 0.966	
+Epoch eval:
+Average acc: 0.982
+  y = not blond, male = 0  [n =  22880]:	acc = 0.979
+  y = not blond, male = 1  [n =   1387]:	acc = 0.986
+  y =     blond, male = 0  [n =  22880]:	acc = 0.984
+  y =     blond, male = 1  [n =   1387]:	acc = 0.979
+Worst-group acc: 0.979
+  y = not blond  [n =  24267]:	acc = 0.980
+  y =     blond  [n =  24267]:	acc = 0.984
+Validation:
+objective: 0.291
+loss_avg: 0.291
+acc_avg: 0.914
+  y = not blond, male = 0  [n =   8535]:	loss: 0.377	acc: 0.894	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.245	acc: 0.927	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.162	acc: 0.940	
+  y =     blond, male = 1  [n =    182]:	loss: 0.443	acc: 0.813	
+Epoch eval:
+Average acc: 0.914
+  y = not blond, male = 0  [n =   8535]:	acc = 0.894
+  y = not blond, male = 1  [n =   8276]:	acc = 0.927
+  y =     blond, male = 0  [n =   2874]:	acc = 0.940
+  y =     blond, male = 1  [n =    182]:	acc = 0.813
+Worst-group acc: 0.813
+  y = not blond  [n =  16811]:	acc = 0.910
+  y =     blond  [n =   3056]:	acc = 0.932
+Validation acc_wg: 0.813
+Epoch [26]:
+Number of training examples: 48534Adding 50 examples to the training data...
+Train:
+objective: 0.040
+loss_avg: 0.040
+acc_avg: 0.988
+  y = not blond, male = 0  [n =   2933]:	loss: 0.045	acc: 0.986	
+  y = not blond, male = 1  [n =    188]:	loss: 0.027	acc: 1.000	
+  y =     blond, male = 0  [n =   3095]:	loss: 0.037	acc: 0.989	
+  y =     blond, male = 1  [n =    184]:	loss: 0.029	acc: 1.000	
+objective: 0.038
+loss_avg: 0.038
+acc_avg: 0.987
+  y = not blond, male = 0  [n =   2978]:	loss: 0.039	acc: 0.986	
+  y = not blond, male = 1  [n =    159]:	loss: 0.017	acc: 1.000	
+  y =     blond, male = 0  [n =   3055]:	loss: 0.038	acc: 0.987	
+  y =     blond, male = 1  [n =    208]:	loss: 0.033	acc: 0.986	
+objective: 0.041
+loss_avg: 0.041
+acc_avg: 0.985
+  y = not blond, male = 0  [n =   3026]:	loss: 0.042	acc: 0.984	
+  y = not blond, male = 1  [n =    208]:	loss: 0.033	acc: 0.986	
+  y =     blond, male = 0  [n =   2995]:	loss: 0.039	acc: 0.987	
+  y =     blond, male = 1  [n =    171]:	loss: 0.053	acc: 0.982	
+objective: 0.043
+loss_avg: 0.043
+acc_avg: 0.985
+  y = not blond, male = 0  [n =   3052]:	loss: 0.042	acc: 0.987	
+  y = not blond, male = 1  [n =    199]:	loss: 0.064	acc: 0.965	
+  y =     blond, male = 0  [n =   2967]:	loss: 0.042	acc: 0.986	
+  y =     blond, male = 1  [n =    182]:	loss: 0.053	acc: 0.978	
+objective: 0.043
+loss_avg: 0.043
+acc_avg: 0.985
+  y = not blond, male = 0  [n =   3067]:	loss: 0.047	acc: 0.984	
+  y = not blond, male = 1  [n =    192]:	loss: 0.015	acc: 0.995	
+  y =     blond, male = 0  [n =   2956]:	loss: 0.042	acc: 0.984	
+  y =     blond, male = 1  [n =    185]:	loss: 0.032	acc: 0.995	
+objective: 0.049
+loss_avg: 0.049
+acc_avg: 0.984
+  y = not blond, male = 0  [n =   3067]:	loss: 0.053	acc: 0.982	
+  y = not blond, male = 1  [n =    185]:	loss: 0.035	acc: 0.984	
+  y =     blond, male = 0  [n =   2972]:	loss: 0.046	acc: 0.986	
+  y =     blond, male = 1  [n =    176]:	loss: 0.059	acc: 0.972	
+objective: 0.042
+loss_avg: 0.042
+acc_avg: 0.987
+  y = not blond, male = 0  [n =   3014]:	loss: 0.044	acc: 0.985	
+  y = not blond, male = 1  [n =    162]:	loss: 0.019	acc: 0.994	
+  y =     blond, male = 0  [n =   3041]:	loss: 0.041	acc: 0.989	
+  y =     blond, male = 1  [n =    183]:	loss: 0.061	acc: 0.989	
+objective: 0.043
+loss_avg: 0.043
+acc_avg: 0.985
+  y = not blond, male = 0  [n =   1773]:	loss: 0.041	acc: 0.987	
+  y = not blond, male = 1  [n =    114]:	loss: 0.037	acc: 0.982	
+  y =     blond, male = 0  [n =   1799]:	loss: 0.045	acc: 0.983	
+  y =     blond, male = 1  [n =     98]:	loss: 0.036	acc: 0.990	
+Epoch eval:
+Average acc: 0.986
+  y = not blond, male = 0  [n =  22910]:	acc = 0.985
+  y = not blond, male = 1  [n =   1407]:	acc = 0.988
+  y =     blond, male = 0  [n =  22880]:	acc = 0.986
+  y =     blond, male = 1  [n =   1387]:	acc = 0.986
+Worst-group acc: 0.985
+  y = not blond  [n =  24317]:	acc = 0.985
+  y =     blond  [n =  24267]:	acc = 0.986
+Validation:
+objective: 0.327
+loss_avg: 0.327
+acc_avg: 0.914
+  y = not blond, male = 0  [n =   8535]:	loss: 0.457	acc: 0.885	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.251	acc: 0.931	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.144	acc: 0.952	
+  y =     blond, male = 1  [n =    182]:	loss: 0.524	acc: 0.824	
+Epoch eval:
+Average acc: 0.914
+  y = not blond, male = 0  [n =   8535]:	acc = 0.885
+  y = not blond, male = 1  [n =   8276]:	acc = 0.931
+  y =     blond, male = 0  [n =   2874]:	acc = 0.952
+  y =     blond, male = 1  [n =    182]:	acc = 0.824
+Worst-group acc: 0.824
+  y = not blond  [n =  16811]:	acc = 0.908
+  y =     blond  [n =   3056]:	acc = 0.945
+Validation acc_wg: 0.824
+Epoch [27]:
+Number of training examples: 48584
+Train:
+objective: 0.027
+loss_avg: 0.027
+acc_avg: 0.993
+  y = not blond, male = 0  [n =   2983]:	loss: 0.031	acc: 0.991	
+  y = not blond, male = 1  [n =    171]:	loss: 0.014	acc: 1.000	
+  y =     blond, male = 0  [n =   3078]:	loss: 0.024	acc: 0.995	
+  y =     blond, male = 1  [n =    168]:	loss: 0.022	acc: 0.994	
+objective: 0.031
+loss_avg: 0.031
+acc_avg: 0.989
+  y = not blond, male = 0  [n =   3059]:	loss: 0.031	acc: 0.988	
+  y = not blond, male = 1  [n =    177]:	loss: 0.024	acc: 0.994	
+  y =     blond, male = 0  [n =   2989]:	loss: 0.032	acc: 0.990	
+  y =     blond, male = 1  [n =    175]:	loss: 0.031	acc: 0.989	
+objective: 0.029
+loss_avg: 0.029
+acc_avg: 0.993
+  y = not blond, male = 0  [n =   3019]:	loss: 0.028	acc: 0.993	
+  y = not blond, male = 1  [n =    184]:	loss: 0.013	acc: 1.000	
+  y =     blond, male = 0  [n =   3007]:	loss: 0.032	acc: 0.991	
+  y =     blond, male = 1  [n =    190]:	loss: 0.018	acc: 1.000	
+objective: 0.028
+loss_avg: 0.028
+acc_avg: 0.992
+  y = not blond, male = 0  [n =   3013]:	loss: 0.029	acc: 0.991	
+  y = not blond, male = 1  [n =    202]:	loss: 0.017	acc: 0.995	
+  y =     blond, male = 0  [n =   3002]:	loss: 0.026	acc: 0.994	
+  y =     blond, male = 1  [n =    183]:	loss: 0.042	acc: 0.989	
+objective: 0.029
+loss_avg: 0.029
+acc_avg: 0.991
+  y = not blond, male = 0  [n =   3043]:	loss: 0.029	acc: 0.991	
+  y = not blond, male = 1  [n =    176]:	loss: 0.032	acc: 0.989	
+  y =     blond, male = 0  [n =   3006]:	loss: 0.029	acc: 0.992	
+  y =     blond, male = 1  [n =    175]:	loss: 0.036	acc: 0.983	
+objective: 0.031
+loss_avg: 0.031
+acc_avg: 0.991
+  y = not blond, male = 0  [n =   3020]:	loss: 0.032	acc: 0.989	
+  y = not blond, male = 1  [n =    185]:	loss: 0.028	acc: 0.989	
+  y =     blond, male = 0  [n =   2994]:	loss: 0.028	acc: 0.992	
+  y =     blond, male = 1  [n =    201]:	loss: 0.057	acc: 0.985	
+objective: 0.028
+loss_avg: 0.028
+acc_avg: 0.993
+  y = not blond, male = 0  [n =   2961]:	loss: 0.030	acc: 0.992	
+  y = not blond, male = 1  [n =    207]:	loss: 0.019	acc: 0.990	
+  y =     blond, male = 0  [n =   3048]:	loss: 0.026	acc: 0.993	
+  y =     blond, male = 1  [n =    184]:	loss: 0.021	acc: 0.995	
+objective: 0.033
+loss_avg: 0.033
+acc_avg: 0.990
+  y = not blond, male = 0  [n =   1812]:	loss: 0.031	acc: 0.991	
+  y = not blond, male = 1  [n =    105]:	loss: 0.026	acc: 0.990	
+  y =     blond, male = 0  [n =   1756]:	loss: 0.035	acc: 0.989	
+  y =     blond, male = 1  [n =    111]:	loss: 0.053	acc: 0.982	
+Epoch eval:
+Average acc: 0.992
+  y = not blond, male = 0  [n =  22910]:	acc = 0.991
+  y = not blond, male = 1  [n =   1407]:	acc = 0.994
+  y =     blond, male = 0  [n =  22880]:	acc = 0.992
+  y =     blond, male = 1  [n =   1387]:	acc = 0.990
+Worst-group acc: 0.990
+  y = not blond  [n =  24317]:	acc = 0.991
+  y =     blond  [n =  24267]:	acc = 0.992
+Validation:
+objective: 0.316
+loss_avg: 0.316
+acc_avg: 0.922
+  y = not blond, male = 0  [n =   8535]:	loss: 0.408	acc: 0.906	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.259	acc: 0.935	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.198	acc: 0.936	
+  y =     blond, male = 1  [n =    182]:	loss: 0.495	acc: 0.819	
+Epoch eval:
+Average acc: 0.922
+  y = not blond, male = 0  [n =   8535]:	acc = 0.906
+  y = not blond, male = 1  [n =   8276]:	acc = 0.935
+  y =     blond, male = 0  [n =   2874]:	acc = 0.936
+  y =     blond, male = 1  [n =    182]:	acc = 0.819
+Worst-group acc: 0.819
+  y = not blond  [n =  16811]:	acc = 0.920
+  y =     blond  [n =   3056]:	acc = 0.929
+Validation acc_wg: 0.819
+Epoch [28]:
+Number of training examples: 48584
+Train:
+objective: 0.017
+loss_avg: 0.017
+acc_avg: 0.995
+  y = not blond, male = 0  [n =   2983]:	loss: 0.019	acc: 0.994	
+  y = not blond, male = 1  [n =    189]:	loss: 0.018	acc: 0.995	
+  y =     blond, male = 0  [n =   3039]:	loss: 0.016	acc: 0.997	
+  y =     blond, male = 1  [n =    189]:	loss: 0.019	acc: 0.995	
+objective: 0.020
+loss_avg: 0.020
+acc_avg: 0.994
+  y = not blond, male = 0  [n =   3034]:	loss: 0.022	acc: 0.993	
+  y = not blond, male = 1  [n =    199]:	loss: 0.018	acc: 0.990	
+  y =     blond, male = 0  [n =   2993]:	loss: 0.019	acc: 0.995	
+  y =     blond, male = 1  [n =    174]:	loss: 0.016	acc: 1.000	
+objective: 0.017
+loss_avg: 0.017
+acc_avg: 0.996
+  y = not blond, male = 0  [n =   3042]:	loss: 0.018	acc: 0.997	
+  y = not blond, male = 1  [n =    160]:	loss: 0.005	acc: 1.000	
+  y =     blond, male = 0  [n =   3029]:	loss: 0.016	acc: 0.995	
+  y =     blond, male = 1  [n =    169]:	loss: 0.039	acc: 0.988	
+objective: 0.020
+loss_avg: 0.020
+acc_avg: 0.995
+  y = not blond, male = 0  [n =   3031]:	loss: 0.022	acc: 0.994	
+  y = not blond, male = 1  [n =    193]:	loss: 0.014	acc: 0.995	
+  y =     blond, male = 0  [n =   2988]:	loss: 0.017	acc: 0.996	
+  y =     blond, male = 1  [n =    188]:	loss: 0.026	acc: 0.989	
+objective: 0.024
+loss_avg: 0.024
+acc_avg: 0.991
+  y = not blond, male = 0  [n =   2954]:	loss: 0.027	acc: 0.990	
+  y = not blond, male = 1  [n =    189]:	loss: 0.018	acc: 0.995	
+  y =     blond, male = 0  [n =   3051]:	loss: 0.022	acc: 0.992	
+  y =     blond, male = 1  [n =    206]:	loss: 0.016	acc: 0.995	
+objective: 0.021
+loss_avg: 0.021
+acc_avg: 0.995
+  y = not blond, male = 0  [n =   3046]:	loss: 0.019	acc: 0.995	
+  y = not blond, male = 1  [n =    170]:	loss: 0.024	acc: 0.994	
+  y =     blond, male = 0  [n =   3022]:	loss: 0.023	acc: 0.994	
+  y =     blond, male = 1  [n =    162]:	loss: 0.013	acc: 1.000	
+objective: 0.024
+loss_avg: 0.024
+acc_avg: 0.993
+  y = not blond, male = 0  [n =   3042]:	loss: 0.026	acc: 0.992	
+  y = not blond, male = 1  [n =    198]:	loss: 0.023	acc: 0.995	
+  y =     blond, male = 0  [n =   2976]:	loss: 0.023	acc: 0.994	
+  y =     blond, male = 1  [n =    184]:	loss: 0.018	acc: 1.000	
+objective: 0.018
+loss_avg: 0.018
+acc_avg: 0.996
+  y = not blond, male = 0  [n =   1778]:	loss: 0.019	acc: 0.996	
+  y = not blond, male = 1  [n =    109]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   1782]:	loss: 0.019	acc: 0.996	
+  y =     blond, male = 1  [n =    115]:	loss: 0.012	acc: 1.000	
+Epoch eval:
+Average acc: 0.994
+  y = not blond, male = 0  [n =  22910]:	acc = 0.994
+  y = not blond, male = 1  [n =   1407]:	acc = 0.995
+  y =     blond, male = 0  [n =  22880]:	acc = 0.995
+  y =     blond, male = 1  [n =   1387]:	acc = 0.996
+Worst-group acc: 0.994
+  y = not blond  [n =  24317]:	acc = 0.994
+  y =     blond  [n =  24267]:	acc = 0.995
+Validation:
+objective: 0.332
+loss_avg: 0.332
+acc_avg: 0.922
+  y = not blond, male = 0  [n =   8535]:	loss: 0.467	acc: 0.898	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.230	acc: 0.946	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.211	acc: 0.935	
+  y =     blond, male = 1  [n =    182]:	loss: 0.598	acc: 0.830	
+Epoch eval:
+Average acc: 0.922
+  y = not blond, male = 0  [n =   8535]:	acc = 0.898
+  y = not blond, male = 1  [n =   8276]:	acc = 0.946
+  y =     blond, male = 0  [n =   2874]:	acc = 0.935
+  y =     blond, male = 1  [n =    182]:	acc = 0.830
+Worst-group acc: 0.830
+  y = not blond  [n =  16811]:	acc = 0.921
+  y =     blond  [n =   3056]:	acc = 0.929
+Validation acc_wg: 0.830
+Epoch [29]:
+Number of training examples: 48584
+Train:
+objective: 0.017
+loss_avg: 0.017
+acc_avg: 0.995
+  y = not blond, male = 0  [n =   2995]:	loss: 0.020	acc: 0.994	
+  y = not blond, male = 1  [n =    189]:	loss: 0.012	acc: 0.995	
+  y =     blond, male = 0  [n =   3034]:	loss: 0.014	acc: 0.996	
+  y =     blond, male = 1  [n =    182]:	loss: 0.020	acc: 0.995	
+objective: 0.014
+loss_avg: 0.014
+acc_avg: 0.997
+  y = not blond, male = 0  [n =   2953]:	loss: 0.015	acc: 0.998	
+  y = not blond, male = 1  [n =    173]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   3101]:	loss: 0.013	acc: 0.996	
+  y =     blond, male = 1  [n =    173]:	loss: 0.006	acc: 1.000	
+objective: 0.016
+loss_avg: 0.016
+acc_avg: 0.996
+  y = not blond, male = 0  [n =   3067]:	loss: 0.015	acc: 0.997	
+  y = not blond, male = 1  [n =    177]:	loss: 0.007	acc: 1.000	
+  y =     blond, male = 0  [n =   2982]:	loss: 0.017	acc: 0.996	
+  y =     blond, male = 1  [n =    174]:	loss: 0.020	acc: 0.994	
+objective: 0.016
+loss_avg: 0.016
+acc_avg: 0.996
+  y = not blond, male = 0  [n =   3055]:	loss: 0.017	acc: 0.995	
+  y = not blond, male = 1  [n =    190]:	loss: 0.007	acc: 1.000	
+  y =     blond, male = 0  [n =   2975]:	loss: 0.017	acc: 0.996	
+  y =     blond, male = 1  [n =    180]:	loss: 0.006	acc: 1.000	
+objective: 0.014
+loss_avg: 0.014
+acc_avg: 0.996
+  y = not blond, male = 0  [n =   3001]:	loss: 0.017	acc: 0.995	
+  y = not blond, male = 1  [n =    180]:	loss: 0.009	acc: 0.994	
+  y =     blond, male = 0  [n =   3027]:	loss: 0.011	acc: 0.998	
+  y =     blond, male = 1  [n =    192]:	loss: 0.029	acc: 0.990	
+objective: 0.017
+loss_avg: 0.017
+acc_avg: 0.996
+  y = not blond, male = 0  [n =   3045]:	loss: 0.015	acc: 0.996	
+  y = not blond, male = 1  [n =    188]:	loss: 0.010	acc: 0.995	
+  y =     blond, male = 0  [n =   2986]:	loss: 0.016	acc: 0.996	
+  y =     blond, male = 1  [n =    181]:	loss: 0.046	acc: 0.983	
+objective: 0.015
+loss_avg: 0.015
+acc_avg: 0.996
+  y = not blond, male = 0  [n =   3013]:	loss: 0.016	acc: 0.996	
+  y = not blond, male = 1  [n =    191]:	loss: 0.012	acc: 0.995	
+  y =     blond, male = 0  [n =   3000]:	loss: 0.014	acc: 0.996	
+  y =     blond, male = 1  [n =    196]:	loss: 0.017	acc: 0.990	
+objective: 0.014
+loss_avg: 0.014
+acc_avg: 0.997
+  y = not blond, male = 0  [n =   1781]:	loss: 0.012	acc: 0.998	
+  y = not blond, male = 1  [n =    119]:	loss: 0.005	acc: 1.000	
+  y =     blond, male = 0  [n =   1775]:	loss: 0.015	acc: 0.997	
+  y =     blond, male = 1  [n =    109]:	loss: 0.022	acc: 0.991	
+Epoch eval:
+Average acc: 0.996
+  y = not blond, male = 0  [n =  22910]:	acc = 0.996
+  y = not blond, male = 1  [n =   1407]:	acc = 0.997
+  y =     blond, male = 0  [n =  22880]:	acc = 0.996
+  y =     blond, male = 1  [n =   1387]:	acc = 0.993
+Worst-group acc: 0.993
+  y = not blond  [n =  24317]:	acc = 0.996
+  y =     blond  [n =  24267]:	acc = 0.996
+Validation:
+objective: 0.411
+loss_avg: 0.411
+acc_avg: 0.916
+  y = not blond, male = 0  [n =   8535]:	loss: 0.555	acc: 0.894	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.334	acc: 0.931	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.196	acc: 0.945	
+  y =     blond, male = 1  [n =    182]:	loss: 0.509	acc: 0.852	
+Epoch eval:
+Average acc: 0.916
+  y = not blond, male = 0  [n =   8535]:	acc = 0.894
+  y = not blond, male = 1  [n =   8276]:	acc = 0.931
+  y =     blond, male = 0  [n =   2874]:	acc = 0.945
+  y =     blond, male = 1  [n =    182]:	acc = 0.852
+Worst-group acc: 0.852
+  y = not blond  [n =  16811]:	acc = 0.912
+  y =     blond  [n =   3056]:	acc = 0.940
+Validation acc_wg: 0.852
+Epoch [30]:
+Number of training examples: 48584
+Train:
+objective: 0.011
+loss_avg: 0.011
+acc_avg: 0.998
+  y = not blond, male = 0  [n =   3037]:	loss: 0.011	acc: 0.998	
+  y = not blond, male = 1  [n =    176]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   3014]:	loss: 0.011	acc: 0.998	
+  y =     blond, male = 1  [n =    173]:	loss: 0.003	acc: 1.000	
+objective: 0.011
+loss_avg: 0.011
+acc_avg: 0.997
+  y = not blond, male = 0  [n =   3017]:	loss: 0.011	acc: 0.998	
+  y = not blond, male = 1  [n =    196]:	loss: 0.014	acc: 0.990	
+  y =     blond, male = 0  [n =   3012]:	loss: 0.012	acc: 0.997	
+  y =     blond, male = 1  [n =    175]:	loss: 0.013	acc: 0.994	
+objective: 0.011
+loss_avg: 0.011
+acc_avg: 0.997
+  y = not blond, male = 0  [n =   2972]:	loss: 0.010	acc: 0.997	
+  y = not blond, male = 1  [n =    182]:	loss: 0.006	acc: 1.000	
+  y =     blond, male = 0  [n =   3050]:	loss: 0.011	acc: 0.997	
+  y =     blond, male = 1  [n =    196]:	loss: 0.009	acc: 1.000	
+objective: 0.015
+loss_avg: 0.015
+acc_avg: 0.995
+  y = not blond, male = 0  [n =   3007]:	loss: 0.013	acc: 0.995	
+  y = not blond, male = 1  [n =    177]:	loss: 0.006	acc: 1.000	
+  y =     blond, male = 0  [n =   3036]:	loss: 0.017	acc: 0.994	
+  y =     blond, male = 1  [n =    180]:	loss: 0.012	acc: 0.994	
+objective: 0.013
+loss_avg: 0.013
+acc_avg: 0.997
+  y = not blond, male = 0  [n =   3079]:	loss: 0.015	acc: 0.996	
+  y = not blond, male = 1  [n =    186]:	loss: 0.015	acc: 0.989	
+  y =     blond, male = 0  [n =   2942]:	loss: 0.010	acc: 0.998	
+  y =     blond, male = 1  [n =    193]:	loss: 0.013	acc: 0.995	
+objective: 0.012
+loss_avg: 0.012
+acc_avg: 0.997
+  y = not blond, male = 0  [n =   3006]:	loss: 0.012	acc: 0.997	
+  y = not blond, male = 1  [n =    186]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   3028]:	loss: 0.012	acc: 0.997	
+  y =     blond, male = 1  [n =    180]:	loss: 0.004	acc: 1.000	
+objective: 0.015
+loss_avg: 0.015
+acc_avg: 0.996
+  y = not blond, male = 0  [n =   2997]:	loss: 0.015	acc: 0.996	
+  y = not blond, male = 1  [n =    188]:	loss: 0.004	acc: 1.000	
+  y =     blond, male = 0  [n =   3032]:	loss: 0.016	acc: 0.997	
+  y =     blond, male = 1  [n =    183]:	loss: 0.008	acc: 1.000	
+objective: 0.012
+loss_avg: 0.012
+acc_avg: 0.997
+  y = not blond, male = 0  [n =   1795]:	loss: 0.015	acc: 0.996	
+  y = not blond, male = 1  [n =    116]:	loss: 0.015	acc: 0.991	
+  y =     blond, male = 0  [n =   1766]:	loss: 0.009	acc: 0.998	
+  y =     blond, male = 1  [n =    107]:	loss: 0.009	acc: 1.000	
+Epoch eval:
+Average acc: 0.997
+  y = not blond, male = 0  [n =  22910]:	acc = 0.997
+  y = not blond, male = 1  [n =   1407]:	acc = 0.996
+  y =     blond, male = 0  [n =  22880]:	acc = 0.997
+  y =     blond, male = 1  [n =   1387]:	acc = 0.998
+Worst-group acc: 0.996
+  y = not blond  [n =  24317]:	acc = 0.997
+  y =     blond  [n =  24267]:	acc = 0.997
+Validation:
+objective: 0.341
+loss_avg: 0.341
+acc_avg: 0.926
+  y = not blond, male = 0  [n =   8535]:	loss: 0.460	acc: 0.908	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.239	acc: 0.948	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.262	acc: 0.924	
+  y =     blond, male = 1  [n =    182]:	loss: 0.709	acc: 0.802	
+Epoch eval:
+Average acc: 0.926
+  y = not blond, male = 0  [n =   8535]:	acc = 0.908
+  y = not blond, male = 1  [n =   8276]:	acc = 0.948
+  y =     blond, male = 0  [n =   2874]:	acc = 0.924
+  y =     blond, male = 1  [n =    182]:	acc = 0.802
+Worst-group acc: 0.802
+  y = not blond  [n =  16811]:	acc = 0.928
+  y =     blond  [n =   3056]:	acc = 0.917
+Validation acc_wg: 0.802
+Epoch [31]:
+Number of training examples: 48584
+Train:
+objective: 0.010
+loss_avg: 0.010
+acc_avg: 0.998
+  y = not blond, male = 0  [n =   3030]:	loss: 0.009	acc: 0.998	
+  y = not blond, male = 1  [n =    181]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   2996]:	loss: 0.012	acc: 0.997	
+  y =     blond, male = 1  [n =    193]:	loss: 0.012	acc: 1.000	
+objective: 0.015
+loss_avg: 0.015
+acc_avg: 0.995
+  y = not blond, male = 0  [n =   3014]:	loss: 0.017	acc: 0.994	
+  y = not blond, male = 1  [n =    190]:	loss: 0.032	acc: 0.995	
+  y =     blond, male = 0  [n =   3013]:	loss: 0.012	acc: 0.996	
+  y =     blond, male = 1  [n =    183]:	loss: 0.018	acc: 0.989	
+objective: 0.012
+loss_avg: 0.012
+acc_avg: 0.997
+  y = not blond, male = 0  [n =   2942]:	loss: 0.012	acc: 0.997	
+  y = not blond, male = 1  [n =    203]:	loss: 0.009	acc: 1.000	
+  y =     blond, male = 0  [n =   3069]:	loss: 0.012	acc: 0.997	
+  y =     blond, male = 1  [n =    186]:	loss: 0.013	acc: 0.995	
+objective: 0.010
+loss_avg: 0.010
+acc_avg: 0.997
+  y = not blond, male = 0  [n =   3044]:	loss: 0.011	acc: 0.996	
+  y = not blond, male = 1  [n =    201]:	loss: 0.005	acc: 1.000	
+  y =     blond, male = 0  [n =   2970]:	loss: 0.009	acc: 0.998	
+  y =     blond, male = 1  [n =    185]:	loss: 0.008	acc: 1.000	
+objective: 0.008
+loss_avg: 0.008
+acc_avg: 0.998
+  y = not blond, male = 0  [n =   3079]:	loss: 0.008	acc: 0.998	
+  y = not blond, male = 1  [n =    165]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   2978]:	loss: 0.008	acc: 0.997	
+  y =     blond, male = 1  [n =    178]:	loss: 0.009	acc: 1.000	
+objective: 0.010
+loss_avg: 0.010
+acc_avg: 0.998
+  y = not blond, male = 0  [n =   2986]:	loss: 0.010	acc: 0.998	
+  y = not blond, male = 1  [n =    174]:	loss: 0.005	acc: 1.000	
+  y =     blond, male = 0  [n =   3059]:	loss: 0.009	acc: 0.997	
+  y =     blond, male = 1  [n =    181]:	loss: 0.012	acc: 0.994	
+objective: 0.009
+loss_avg: 0.009
+acc_avg: 0.998
+  y = not blond, male = 0  [n =   3025]:	loss: 0.010	acc: 0.998	
+  y = not blond, male = 1  [n =    185]:	loss: 0.014	acc: 0.995	
+  y =     blond, male = 0  [n =   3017]:	loss: 0.008	acc: 0.999	
+  y =     blond, male = 1  [n =    173]:	loss: 0.004	acc: 1.000	
+objective: 0.012
+loss_avg: 0.012
+acc_avg: 0.996
+  y = not blond, male = 0  [n =   1790]:	loss: 0.011	acc: 0.997	
+  y = not blond, male = 1  [n =    108]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   1778]:	loss: 0.013	acc: 0.995	
+  y =     blond, male = 1  [n =    108]:	loss: 0.011	acc: 1.000	
+Epoch eval:
+Average acc: 0.997
+  y = not blond, male = 0  [n =  22910]:	acc = 0.997
+  y = not blond, male = 1  [n =   1407]:	acc = 0.999
+  y =     blond, male = 0  [n =  22880]:	acc = 0.997
+  y =     blond, male = 1  [n =   1387]:	acc = 0.997
+Worst-group acc: 0.997
+  y = not blond  [n =  24317]:	acc = 0.997
+  y =     blond  [n =  24267]:	acc = 0.997
+Validation:
+objective: 0.403
+loss_avg: 0.403
+acc_avg: 0.919
+  y = not blond, male = 0  [n =   8535]:	loss: 0.556	acc: 0.897	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.301	acc: 0.937	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.228	acc: 0.936	
+  y =     blond, male = 1  [n =    182]:	loss: 0.643	acc: 0.841	
+Epoch eval:
+Average acc: 0.919
+  y = not blond, male = 0  [n =   8535]:	acc = 0.897
+  y = not blond, male = 1  [n =   8276]:	acc = 0.937
+  y =     blond, male = 0  [n =   2874]:	acc = 0.936
+  y =     blond, male = 1  [n =    182]:	acc = 0.841
+Worst-group acc: 0.841
+  y = not blond  [n =  16811]:	acc = 0.917
+  y =     blond  [n =   3056]:	acc = 0.930
+Validation acc_wg: 0.841
+Epoch [32]:
+Number of training examples: 48584
+Train:
+objective: 0.006
+loss_avg: 0.006
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3045]:	loss: 0.006	acc: 0.999	
+  y = not blond, male = 1  [n =    181]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   2982]:	loss: 0.006	acc: 0.999	
+  y =     blond, male = 1  [n =    192]:	loss: 0.009	acc: 0.995	
+objective: 0.007
+loss_avg: 0.007
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   2955]:	loss: 0.006	acc: 1.000	
+  y = not blond, male = 1  [n =    193]:	loss: 0.008	acc: 0.995	
+  y =     blond, male = 0  [n =   3065]:	loss: 0.008	acc: 0.999	
+  y =     blond, male = 1  [n =    187]:	loss: 0.002	acc: 1.000	
+objective: 0.008
+loss_avg: 0.008
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   2967]:	loss: 0.009	acc: 0.998	
+  y = not blond, male = 1  [n =    203]:	loss: 0.006	acc: 0.995	
+  y =     blond, male = 0  [n =   3042]:	loss: 0.007	acc: 0.999	
+  y =     blond, male = 1  [n =    188]:	loss: 0.004	acc: 1.000	
+objective: 0.007
+loss_avg: 0.007
+acc_avg: 0.998
+  y = not blond, male = 0  [n =   3035]:	loss: 0.007	acc: 0.998	
+  y = not blond, male = 1  [n =    157]:	loss: 0.005	acc: 1.000	
+  y =     blond, male = 0  [n =   3033]:	loss: 0.008	acc: 0.998	
+  y =     blond, male = 1  [n =    175]:	loss: 0.004	acc: 1.000	
+objective: 0.006
+loss_avg: 0.006
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3037]:	loss: 0.006	acc: 0.999	
+  y = not blond, male = 1  [n =    189]:	loss: 0.004	acc: 1.000	
+  y =     blond, male = 0  [n =   2992]:	loss: 0.006	acc: 0.999	
+  y =     blond, male = 1  [n =    182]:	loss: 0.008	acc: 1.000	
+objective: 0.005
+loss_avg: 0.005
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3037]:	loss: 0.005	acc: 1.000	
+  y = not blond, male = 1  [n =    187]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2994]:	loss: 0.005	acc: 0.999	
+  y =     blond, male = 1  [n =    182]:	loss: 0.003	acc: 1.000	
+objective: 0.006
+loss_avg: 0.006
+acc_avg: 0.998
+  y = not blond, male = 0  [n =   3029]:	loss: 0.006	acc: 0.999	
+  y = not blond, male = 1  [n =    183]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   3018]:	loss: 0.006	acc: 0.998	
+  y =     blond, male = 1  [n =    170]:	loss: 0.012	acc: 0.994	
+objective: 0.006
+loss_avg: 0.006
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   1805]:	loss: 0.007	acc: 0.998	
+  y = not blond, male = 1  [n =    114]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   1754]:	loss: 0.005	acc: 0.999	
+  y =     blond, male = 1  [n =    111]:	loss: 0.011	acc: 1.000	
+Epoch eval:
+Average acc: 0.999
+  y = not blond, male = 0  [n =  22910]:	acc = 0.999
+  y = not blond, male = 1  [n =   1407]:	acc = 0.999
+  y =     blond, male = 0  [n =  22880]:	acc = 0.999
+  y =     blond, male = 1  [n =   1387]:	acc = 0.999
+Worst-group acc: 0.999
+  y = not blond  [n =  24317]:	acc = 0.999
+  y =     blond  [n =  24267]:	acc = 0.999
+Validation:
+objective: 0.406
+loss_avg: 0.406
+acc_avg: 0.922
+  y = not blond, male = 0  [n =   8535]:	loss: 0.543	acc: 0.903	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.307	acc: 0.939	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.259	acc: 0.932	
+  y =     blond, male = 1  [n =    182]:	loss: 0.725	acc: 0.819	
+Epoch eval:
+Average acc: 0.922
+  y = not blond, male = 0  [n =   8535]:	acc = 0.903
+  y = not blond, male = 1  [n =   8276]:	acc = 0.939
+  y =     blond, male = 0  [n =   2874]:	acc = 0.932
+  y =     blond, male = 1  [n =    182]:	acc = 0.819
+Worst-group acc: 0.819
+  y = not blond  [n =  16811]:	acc = 0.921
+  y =     blond  [n =   3056]:	acc = 0.925
+Validation acc_wg: 0.819
+Epoch [33]:
+Number of training examples: 48584
+Train:
+objective: 0.004
+loss_avg: 0.004
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3061]:	loss: 0.004	acc: 0.999	
+  y = not blond, male = 1  [n =    165]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   3012]:	loss: 0.004	acc: 0.999	
+  y =     blond, male = 1  [n =    162]:	loss: 0.002	acc: 1.000	
+objective: 0.006
+loss_avg: 0.006
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3047]:	loss: 0.005	acc: 0.999	
+  y = not blond, male = 1  [n =    192]:	loss: 0.019	acc: 0.995	
+  y =     blond, male = 0  [n =   2967]:	loss: 0.005	acc: 0.999	
+  y =     blond, male = 1  [n =    194]:	loss: 0.009	acc: 0.995	
+objective: 0.006
+loss_avg: 0.006
+acc_avg: 0.998
+  y = not blond, male = 0  [n =   3043]:	loss: 0.007	acc: 0.998	
+  y = not blond, male = 1  [n =    180]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   2999]:	loss: 0.004	acc: 0.999	
+  y =     blond, male = 1  [n =    178]:	loss: 0.015	acc: 0.994	
+objective: 0.005
+loss_avg: 0.005
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   2980]:	loss: 0.005	acc: 0.999	
+  y = not blond, male = 1  [n =    194]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   3060]:	loss: 0.005	acc: 0.998	
+  y =     blond, male = 1  [n =    166]:	loss: 0.003	acc: 1.000	
+objective: 0.007
+loss_avg: 0.007
+acc_avg: 0.998
+  y = not blond, male = 0  [n =   3065]:	loss: 0.009	acc: 0.998	
+  y = not blond, male = 1  [n =    162]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2991]:	loss: 0.006	acc: 0.998	
+  y =     blond, male = 1  [n =    182]:	loss: 0.005	acc: 1.000	
+objective: 0.007
+loss_avg: 0.007
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3001]:	loss: 0.007	acc: 0.999	
+  y = not blond, male = 1  [n =    190]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   3013]:	loss: 0.007	acc: 0.999	
+  y =     blond, male = 1  [n =    196]:	loss: 0.006	acc: 1.000	
+objective: 0.009
+loss_avg: 0.009
+acc_avg: 0.998
+  y = not blond, male = 0  [n =   2984]:	loss: 0.008	acc: 0.998	
+  y = not blond, male = 1  [n =    202]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   3028]:	loss: 0.009	acc: 0.997	
+  y =     blond, male = 1  [n =    186]:	loss: 0.012	acc: 0.995	
+objective: 0.008
+loss_avg: 0.008
+acc_avg: 0.997
+  y = not blond, male = 0  [n =   1729]:	loss: 0.009	acc: 0.998	
+  y = not blond, male = 1  [n =    122]:	loss: 0.022	acc: 0.992	
+  y =     blond, male = 0  [n =   1810]:	loss: 0.007	acc: 0.997	
+  y =     blond, male = 1  [n =    123]:	loss: 0.003	acc: 1.000	
+Epoch eval:
+Average acc: 0.999
+  y = not blond, male = 0  [n =  22910]:	acc = 0.999
+  y = not blond, male = 1  [n =   1407]:	acc = 0.999
+  y =     blond, male = 0  [n =  22880]:	acc = 0.999
+  y =     blond, male = 1  [n =   1387]:	acc = 0.998
+Worst-group acc: 0.998
+  y = not blond  [n =  24317]:	acc = 0.999
+  y =     blond  [n =  24267]:	acc = 0.998
+Validation:
+objective: 0.395
+loss_avg: 0.395
+acc_avg: 0.927
+  y = not blond, male = 0  [n =   8535]:	loss: 0.547	acc: 0.907	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.262	acc: 0.951	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.295	acc: 0.922	
+  y =     blond, male = 1  [n =    182]:	loss: 0.877	acc: 0.824	
+Epoch eval:
+Average acc: 0.927
+  y = not blond, male = 0  [n =   8535]:	acc = 0.907
+  y = not blond, male = 1  [n =   8276]:	acc = 0.951
+  y =     blond, male = 0  [n =   2874]:	acc = 0.922
+  y =     blond, male = 1  [n =    182]:	acc = 0.824
+Worst-group acc: 0.824
+  y = not blond  [n =  16811]:	acc = 0.929
+  y =     blond  [n =   3056]:	acc = 0.917
+Validation acc_wg: 0.824
+Epoch [34]:
+Number of training examples: 48584
+Train:
+objective: 0.006
+loss_avg: 0.006
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3003]:	loss: 0.005	acc: 1.000	
+  y = not blond, male = 1  [n =    165]:	loss: 0.007	acc: 1.000	
+  y =     blond, male = 0  [n =   3045]:	loss: 0.007	acc: 0.998	
+  y =     blond, male = 1  [n =    187]:	loss: 0.007	acc: 1.000	
+objective: 0.006
+loss_avg: 0.006
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   2993]:	loss: 0.006	acc: 0.999	
+  y = not blond, male = 1  [n =    193]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3047]:	loss: 0.005	acc: 0.999	
+  y =     blond, male = 1  [n =    167]:	loss: 0.010	acc: 0.994	
+objective: 0.006
+loss_avg: 0.006
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3066]:	loss: 0.007	acc: 0.999	
+  y = not blond, male = 1  [n =    206]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2958]:	loss: 0.004	acc: 0.999	
+  y =     blond, male = 1  [n =    170]:	loss: 0.004	acc: 1.000	
+objective: 0.006
+loss_avg: 0.006
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3027]:	loss: 0.006	acc: 0.999	
+  y = not blond, male = 1  [n =    197]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   2990]:	loss: 0.006	acc: 0.998	
+  y =     blond, male = 1  [n =    186]:	loss: 0.008	acc: 0.995	
+objective: 0.007
+loss_avg: 0.007
+acc_avg: 0.998
+  y = not blond, male = 0  [n =   3050]:	loss: 0.008	acc: 0.998	
+  y = not blond, male = 1  [n =    192]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2969]:	loss: 0.006	acc: 0.998	
+  y =     blond, male = 1  [n =    189]:	loss: 0.004	acc: 1.000	
+objective: 0.005
+loss_avg: 0.005
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3024]:	loss: 0.005	acc: 0.999	
+  y = not blond, male = 1  [n =    181]:	loss: 0.006	acc: 1.000	
+  y =     blond, male = 0  [n =   3000]:	loss: 0.005	acc: 0.999	
+  y =     blond, male = 1  [n =    195]:	loss: 0.009	acc: 1.000	
+objective: 0.005
+loss_avg: 0.005
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   2976]:	loss: 0.005	acc: 0.999	
+  y = not blond, male = 1  [n =    162]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   3073]:	loss: 0.005	acc: 1.000	
+  y =     blond, male = 1  [n =    189]:	loss: 0.014	acc: 0.995	
+objective: 0.005
+loss_avg: 0.005
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   1771]:	loss: 0.007	acc: 0.998	
+  y = not blond, male = 1  [n =    111]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   1798]:	loss: 0.003	acc: 0.999	
+  y =     blond, male = 1  [n =    104]:	loss: 0.008	acc: 1.000	
+Epoch eval:
+Average acc: 0.999
+  y = not blond, male = 0  [n =  22910]:	acc = 0.999
+  y = not blond, male = 1  [n =   1407]:	acc = 1.000
+  y =     blond, male = 0  [n =  22880]:	acc = 0.999
+  y =     blond, male = 1  [n =   1387]:	acc = 0.998
+Worst-group acc: 0.998
+  y = not blond  [n =  24317]:	acc = 0.999
+  y =     blond  [n =  24267]:	acc = 0.999
+Validation:
+objective: 0.352
+loss_avg: 0.352
+acc_avg: 0.931
+  y = not blond, male = 0  [n =   8535]:	loss: 0.417	acc: 0.924	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.261	acc: 0.950	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.392	acc: 0.898	
+  y =     blond, male = 1  [n =    182]:	loss: 0.850	acc: 0.819	
+Epoch eval:
+Average acc: 0.931
+  y = not blond, male = 0  [n =   8535]:	acc = 0.924
+  y = not blond, male = 1  [n =   8276]:	acc = 0.950
+  y =     blond, male = 0  [n =   2874]:	acc = 0.898
+  y =     blond, male = 1  [n =    182]:	acc = 0.819
+Worst-group acc: 0.819
+  y = not blond  [n =  16811]:	acc = 0.937
+  y =     blond  [n =   3056]:	acc = 0.894
+Validation acc_wg: 0.819
+Epoch [35]:
+Number of training examples: 48584
+Train:
+objective: 0.005
+loss_avg: 0.005
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3008]:	loss: 0.005	acc: 0.998	
+  y = not blond, male = 1  [n =    183]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3014]:	loss: 0.005	acc: 0.999	
+  y =     blond, male = 1  [n =    195]:	loss: 0.002	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2976]:	loss: 0.003	acc: 1.000	
+  y = not blond, male = 1  [n =    200]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   3038]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 1  [n =    186]:	loss: 0.007	acc: 1.000	
+objective: 0.005
+loss_avg: 0.005
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3064]:	loss: 0.006	acc: 0.999	
+  y = not blond, male = 1  [n =    193]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   2974]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 1  [n =    169]:	loss: 0.009	acc: 1.000	
+objective: 0.004
+loss_avg: 0.004
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3015]:	loss: 0.003	acc: 1.000	
+  y = not blond, male = 1  [n =    176]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   3011]:	loss: 0.004	acc: 1.000	
+  y =     blond, male = 1  [n =    198]:	loss: 0.002	acc: 1.000	
+objective: 0.005
+loss_avg: 0.005
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3025]:	loss: 0.004	acc: 0.999	
+  y = not blond, male = 1  [n =    195]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   3012]:	loss: 0.007	acc: 0.998	
+  y =     blond, male = 1  [n =    168]:	loss: 0.003	acc: 1.000	
+objective: 0.004
+loss_avg: 0.004
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3041]:	loss: 0.005	acc: 0.999	
+  y = not blond, male = 1  [n =    177]:	loss: 0.004	acc: 1.000	
+  y =     blond, male = 0  [n =   3005]:	loss: 0.003	acc: 0.999	
+  y =     blond, male = 1  [n =    177]:	loss: 0.001	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2995]:	loss: 0.003	acc: 1.000	
+  y = not blond, male = 1  [n =    180]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3049]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 1  [n =    176]:	loss: 0.009	acc: 0.994	
+objective: 0.004
+loss_avg: 0.004
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   1786]:	loss: 0.004	acc: 0.999	
+  y = not blond, male = 1  [n =    103]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   1777]:	loss: 0.004	acc: 0.999	
+  y =     blond, male = 1  [n =    118]:	loss: 0.013	acc: 0.992	
+Epoch eval:
+Average acc: 0.999
+  y = not blond, male = 0  [n =  22910]:	acc = 0.999
+  y = not blond, male = 1  [n =   1407]:	acc = 1.000
+  y =     blond, male = 0  [n =  22880]:	acc = 0.999
+  y =     blond, male = 1  [n =   1387]:	acc = 0.999
+Worst-group acc: 0.999
+  y = not blond  [n =  24317]:	acc = 0.999
+  y =     blond  [n =  24267]:	acc = 0.999
+Validation:
+objective: 0.508
+loss_avg: 0.508
+acc_avg: 0.914
+  y = not blond, male = 0  [n =   8535]:	loss: 0.684	acc: 0.892	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.425	acc: 0.927	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.219	acc: 0.943	
+  y =     blond, male = 1  [n =    182]:	loss: 0.610	acc: 0.863	
+Epoch eval:
+Average acc: 0.914
+  y = not blond, male = 0  [n =   8535]:	acc = 0.892
+  y = not blond, male = 1  [n =   8276]:	acc = 0.927
+  y =     blond, male = 0  [n =   2874]:	acc = 0.943
+  y =     blond, male = 1  [n =    182]:	acc = 0.863
+Worst-group acc: 0.863
+  y = not blond  [n =  16811]:	acc = 0.909
+  y =     blond  [n =   3056]:	acc = 0.938
+Validation acc_wg: 0.863
+Epoch [36]:
+Number of training examples: 48584Adding 50 examples to the training data...
+Train:
+objective: 0.004
+loss_avg: 0.004
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   2935]:	loss: 0.005	acc: 0.998	
+  y = not blond, male = 1  [n =    177]:	loss: 0.005	acc: 1.000	
+  y =     blond, male = 0  [n =   3112]:	loss: 0.003	acc: 0.999	
+  y =     blond, male = 1  [n =    176]:	loss: 0.002	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3054]:	loss: 0.003	acc: 1.000	
+  y = not blond, male = 1  [n =    206]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   2958]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    182]:	loss: 0.003	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3042]:	loss: 0.003	acc: 1.000	
+  y = not blond, male = 1  [n =    184]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2981]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    193]:	loss: 0.008	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3064]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    202]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2939]:	loss: 0.005	acc: 0.999	
+  y =     blond, male = 1  [n =    195]:	loss: 0.001	acc: 1.000	
+objective: 0.005
+loss_avg: 0.005
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3005]:	loss: 0.003	acc: 0.999	
+  y = not blond, male = 1  [n =    189]:	loss: 0.078	acc: 0.995	
+  y =     blond, male = 0  [n =   3024]:	loss: 0.003	acc: 0.999	
+  y =     blond, male = 1  [n =    182]:	loss: 0.003	acc: 1.000	
+objective: 0.007
+loss_avg: 0.007
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3082]:	loss: 0.003	acc: 0.999	
+  y = not blond, male = 1  [n =    181]:	loss: 0.098	acc: 0.989	
+  y =     blond, male = 0  [n =   2960]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 1  [n =    177]:	loss: 0.032	acc: 0.989	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2965]:	loss: 0.003	acc: 1.000	
+  y = not blond, male = 1  [n =    188]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   3070]:	loss: 0.003	acc: 0.999	
+  y =     blond, male = 1  [n =    177]:	loss: 0.003	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   1783]:	loss: 0.003	acc: 1.000	
+  y = not blond, male = 1  [n =    110]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   1836]:	loss: 0.003	acc: 0.999	
+  y =     blond, male = 1  [n =    105]:	loss: 0.009	acc: 1.000	
+Epoch eval:
+Average acc: 0.999
+  y = not blond, male = 0  [n =  22930]:	acc = 1.000
+  y = not blond, male = 1  [n =   1437]:	acc = 0.998
+  y =     blond, male = 0  [n =  22880]:	acc = 0.999
+  y =     blond, male = 1  [n =   1387]:	acc = 0.999
+Worst-group acc: 0.998
+  y = not blond  [n =  24367]:	acc = 0.999
+  y =     blond  [n =  24267]:	acc = 0.999
+Validation:
+objective: 0.425
+loss_avg: 0.425
+acc_avg: 0.923
+  y = not blond, male = 0  [n =   8535]:	loss: 0.551	acc: 0.908	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.333	acc: 0.939	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.296	acc: 0.926	
+  y =     blond, male = 1  [n =    182]:	loss: 0.720	acc: 0.819	
+Epoch eval:
+Average acc: 0.923
+  y = not blond, male = 0  [n =   8535]:	acc = 0.908
+  y = not blond, male = 1  [n =   8276]:	acc = 0.939
+  y =     blond, male = 0  [n =   2874]:	acc = 0.926
+  y =     blond, male = 1  [n =    182]:	acc = 0.819
+Worst-group acc: 0.819
+  y = not blond  [n =  16811]:	acc = 0.923
+  y =     blond  [n =   3056]:	acc = 0.920
+Validation acc_wg: 0.819
+Epoch [37]:
+Number of training examples: 48634
+Train:
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2979]:	loss: 0.003	acc: 1.000	
+  y = not blond, male = 1  [n =    189]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3037]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    195]:	loss: 0.001	acc: 1.000	
+objective: 0.006
+loss_avg: 0.006
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3044]:	loss: 0.008	acc: 0.999	
+  y = not blond, male = 1  [n =    201]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2994]:	loss: 0.004	acc: 0.999	
+  y =     blond, male = 1  [n =    161]:	loss: 0.006	acc: 1.000	
+objective: 0.004
+loss_avg: 0.004
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3070]:	loss: 0.003	acc: 0.999	
+  y = not blond, male = 1  [n =    171]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   2981]:	loss: 0.005	acc: 0.999	
+  y =     blond, male = 1  [n =    178]:	loss: 0.002	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3032]:	loss: 0.004	acc: 0.999	
+  y = not blond, male = 1  [n =    184]:	loss: 0.011	acc: 0.995	
+  y =     blond, male = 0  [n =   2989]:	loss: 0.003	acc: 0.999	
+  y =     blond, male = 1  [n =    195]:	loss: 0.003	acc: 1.000	
+objective: 0.004
+loss_avg: 0.004
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   2971]:	loss: 0.004	acc: 0.999	
+  y = not blond, male = 1  [n =    200]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   3045]:	loss: 0.004	acc: 0.999	
+  y =     blond, male = 1  [n =    184]:	loss: 0.008	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3039]:	loss: 0.003	acc: 1.000	
+  y = not blond, male = 1  [n =    191]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   2988]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    182]:	loss: 0.009	acc: 0.995	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3018]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    177]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3031]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    174]:	loss: 0.002	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   1777]:	loss: 0.002	acc: 0.999	
+  y = not blond, male = 1  [n =    124]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   1815]:	loss: 0.005	acc: 0.999	
+  y =     blond, male = 1  [n =    118]:	loss: 0.003	acc: 1.000	
+Epoch eval:
+Average acc: 0.999
+  y = not blond, male = 0  [n =  22930]:	acc = 0.999
+  y = not blond, male = 1  [n =   1437]:	acc = 0.999
+  y =     blond, male = 0  [n =  22880]:	acc = 0.999
+  y =     blond, male = 1  [n =   1387]:	acc = 0.999
+Worst-group acc: 0.999
+  y = not blond  [n =  24367]:	acc = 0.999
+  y =     blond  [n =  24267]:	acc = 0.999
+Validation:
+objective: 0.447
+loss_avg: 0.447
+acc_avg: 0.921
+  y = not blond, male = 0  [n =   8535]:	loss: 0.586	acc: 0.906	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.348	acc: 0.936	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.295	acc: 0.927	
+  y =     blond, male = 1  [n =    182]:	loss: 0.785	acc: 0.824	
+Epoch eval:
+Average acc: 0.921
+  y = not blond, male = 0  [n =   8535]:	acc = 0.906
+  y = not blond, male = 1  [n =   8276]:	acc = 0.936
+  y =     blond, male = 0  [n =   2874]:	acc = 0.927
+  y =     blond, male = 1  [n =    182]:	acc = 0.824
+Worst-group acc: 0.824
+  y = not blond  [n =  16811]:	acc = 0.921
+  y =     blond  [n =   3056]:	acc = 0.921
+Validation acc_wg: 0.824
+Epoch [38]:
+Number of training examples: 48634
+Train:
+objective: 0.006
+loss_avg: 0.006
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3022]:	loss: 0.005	acc: 0.999	
+  y = not blond, male = 1  [n =    184]:	loss: 0.009	acc: 0.995	
+  y =     blond, male = 0  [n =   3025]:	loss: 0.007	acc: 0.999	
+  y =     blond, male = 1  [n =    169]:	loss: 0.002	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3076]:	loss: 0.004	acc: 0.999	
+  y = not blond, male = 1  [n =    182]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2972]:	loss: 0.003	acc: 0.999	
+  y =     blond, male = 1  [n =    170]:	loss: 0.002	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2967]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    198]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3064]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    171]:	loss: 0.007	acc: 0.994	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3016]:	loss: 0.002	acc: 0.999	
+  y = not blond, male = 1  [n =    192]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2998]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    194]:	loss: 0.002	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3016]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    184]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   3005]:	loss: 0.003	acc: 0.999	
+  y =     blond, male = 1  [n =    195]:	loss: 0.005	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3015]:	loss: 0.003	acc: 0.999	
+  y = not blond, male = 1  [n =    172]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3037]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    176]:	loss: 0.002	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3013]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    219]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2970]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    198]:	loss: 0.001	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   1805]:	loss: 0.003	acc: 0.999	
+  y = not blond, male = 1  [n =    106]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   1809]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 1  [n =    114]:	loss: 0.008	acc: 1.000	
+Epoch eval:
+Average acc: 0.999
+  y = not blond, male = 0  [n =  22930]:	acc = 0.999
+  y = not blond, male = 1  [n =   1437]:	acc = 0.999
+  y =     blond, male = 0  [n =  22880]:	acc = 1.000
+  y =     blond, male = 1  [n =   1387]:	acc = 0.999
+Worst-group acc: 0.999
+  y = not blond  [n =  24367]:	acc = 0.999
+  y =     blond  [n =  24267]:	acc = 1.000
+Validation:
+objective: 0.506
+loss_avg: 0.506
+acc_avg: 0.916
+  y = not blond, male = 0  [n =   8535]:	loss: 0.642	acc: 0.903	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.448	acc: 0.925	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.266	acc: 0.933	
+  y =     blond, male = 1  [n =    182]:	loss: 0.575	acc: 0.857	
+Epoch eval:
+Average acc: 0.916
+  y = not blond, male = 0  [n =   8535]:	acc = 0.903
+  y = not blond, male = 1  [n =   8276]:	acc = 0.925
+  y =     blond, male = 0  [n =   2874]:	acc = 0.933
+  y =     blond, male = 1  [n =    182]:	acc = 0.857
+Worst-group acc: 0.857
+  y = not blond  [n =  16811]:	acc = 0.914
+  y =     blond  [n =   3056]:	acc = 0.928
+Validation acc_wg: 0.857
+Epoch [39]:
+Number of training examples: 48634
+Train:
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3055]:	loss: 0.003	acc: 1.000	
+  y = not blond, male = 1  [n =    186]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2984]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    175]:	loss: 0.001	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3037]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    200]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   3000]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    163]:	loss: 0.004	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3002]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    192]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   3021]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    185]:	loss: 0.002	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3016]:	loss: 0.003	acc: 0.999	
+  y = not blond, male = 1  [n =    185]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3001]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 1  [n =    198]:	loss: 0.001	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3027]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    184]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2990]:	loss: 0.004	acc: 1.000	
+  y =     blond, male = 1  [n =    199]:	loss: 0.002	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2983]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    202]:	loss: 0.010	acc: 0.995	
+  y =     blond, male = 0  [n =   3026]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    189]:	loss: 0.000	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3039]:	loss: 0.003	acc: 0.999	
+  y = not blond, male = 1  [n =    180]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   2997]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    184]:	loss: 0.007	acc: 0.995	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   1771]:	loss: 0.002	acc: 0.999	
+  y = not blond, male = 1  [n =    108]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   1861]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =     94]:	loss: 0.003	acc: 1.000	
+Epoch eval:
+Average acc: 1.000
+  y = not blond, male = 0  [n =  22930]:	acc = 1.000
+  y = not blond, male = 1  [n =   1437]:	acc = 0.999
+  y =     blond, male = 0  [n =  22880]:	acc = 1.000
+  y =     blond, male = 1  [n =   1387]:	acc = 0.999
+Worst-group acc: 0.999
+  y = not blond  [n =  24367]:	acc = 1.000
+  y =     blond  [n =  24267]:	acc = 1.000
+Validation:
+objective: 0.458
+loss_avg: 0.458
+acc_avg: 0.922
+  y = not blond, male = 0  [n =   8535]:	loss: 0.620	acc: 0.905	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.335	acc: 0.940	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.303	acc: 0.927	
+  y =     blond, male = 1  [n =    182]:	loss: 0.838	acc: 0.824	
+Epoch eval:
+Average acc: 0.922
+  y = not blond, male = 0  [n =   8535]:	acc = 0.905
+  y = not blond, male = 1  [n =   8276]:	acc = 0.940
+  y =     blond, male = 0  [n =   2874]:	acc = 0.927
+  y =     blond, male = 1  [n =    182]:	acc = 0.824
+Worst-group acc: 0.824
+  y = not blond  [n =  16811]:	acc = 0.922
+  y =     blond  [n =   3056]:	acc = 0.921
+Validation acc_wg: 0.824
+Epoch [40]:
+Number of training examples: 48634
+Train:
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2981]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    192]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3027]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    200]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3061]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    186]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3003]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    150]:	loss: 0.000	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2904]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    192]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3121]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    183]:	loss: 0.001	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3041]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    169]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3015]:	loss: 0.002	acc: 0.999	
+  y =     blond, male = 1  [n =    175]:	loss: 0.000	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3017]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    212]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   2973]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    198]:	loss: 0.001	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3031]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    200]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2985]:	loss: 0.004	acc: 0.999	
+  y =     blond, male = 1  [n =    184]:	loss: 0.002	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3059]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    181]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2974]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    186]:	loss: 0.001	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   1836]:	loss: 0.002	acc: 0.999	
+  y = not blond, male = 1  [n =    105]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   1782]:	loss: 0.002	acc: 0.999	
+  y =     blond, male = 1  [n =    111]:	loss: 0.003	acc: 1.000	
+Epoch eval:
+Average acc: 1.000
+  y = not blond, male = 0  [n =  22930]:	acc = 1.000
+  y = not blond, male = 1  [n =   1437]:	acc = 1.000
+  y =     blond, male = 0  [n =  22880]:	acc = 1.000
+  y =     blond, male = 1  [n =   1387]:	acc = 1.000
+Worst-group acc: 1.000
+  y = not blond  [n =  24367]:	acc = 1.000
+  y =     blond  [n =  24267]:	acc = 1.000
+Validation:
+objective: 0.495
+loss_avg: 0.495
+acc_avg: 0.919
+  y = not blond, male = 0  [n =   8535]:	loss: 0.657	acc: 0.901	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.396	acc: 0.935	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.281	acc: 0.933	
+  y =     blond, male = 1  [n =    182]:	loss: 0.782	acc: 0.813	
+Epoch eval:
+Average acc: 0.919
+  y = not blond, male = 0  [n =   8535]:	acc = 0.901
+  y = not blond, male = 1  [n =   8276]:	acc = 0.935
+  y =     blond, male = 0  [n =   2874]:	acc = 0.933
+  y =     blond, male = 1  [n =    182]:	acc = 0.813
+Worst-group acc: 0.813
+  y = not blond  [n =  16811]:	acc = 0.918
+  y =     blond  [n =   3056]:	acc = 0.926
+Validation acc_wg: 0.813
+Epoch [41]:
+Number of training examples: 48634
+Train:
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2977]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    179]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   3069]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    175]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3058]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    173]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2962]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    207]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2998]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    188]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3032]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    182]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3042]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    189]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2985]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    184]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3007]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    206]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3005]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    182]:	loss: 0.000	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3061]:	loss: 0.005	acc: 1.000	
+  y = not blond, male = 1  [n =    191]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2983]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    165]:	loss: 0.001	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2982]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    190]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3055]:	loss: 0.003	acc: 0.999	
+  y =     blond, male = 1  [n =    173]:	loss: 0.001	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   1805]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    121]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   1789]:	loss: 0.004	acc: 0.998	
+  y =     blond, male = 1  [n =    119]:	loss: 0.001	acc: 1.000	
+Epoch eval:
+Average acc: 1.000
+  y = not blond, male = 0  [n =  22930]:	acc = 1.000
+  y = not blond, male = 1  [n =   1437]:	acc = 1.000
+  y =     blond, male = 0  [n =  22880]:	acc = 1.000
+  y =     blond, male = 1  [n =   1387]:	acc = 1.000
+Worst-group acc: 1.000
+  y = not blond  [n =  24367]:	acc = 1.000
+  y =     blond  [n =  24267]:	acc = 1.000
+Validation:
+objective: 0.490
+loss_avg: 0.490
+acc_avg: 0.917
+  y = not blond, male = 0  [n =   8535]:	loss: 0.655	acc: 0.898	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.385	acc: 0.932	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.277	acc: 0.934	
+  y =     blond, male = 1  [n =    182]:	loss: 0.826	acc: 0.824	
+Epoch eval:
+Average acc: 0.917
+  y = not blond, male = 0  [n =   8535]:	acc = 0.898
+  y = not blond, male = 1  [n =   8276]:	acc = 0.932
+  y =     blond, male = 0  [n =   2874]:	acc = 0.934
+  y =     blond, male = 1  [n =    182]:	acc = 0.824
+Worst-group acc: 0.824
+  y = not blond  [n =  16811]:	acc = 0.915
+  y =     blond  [n =   3056]:	acc = 0.928
+Validation acc_wg: 0.824
+Epoch [42]:
+Number of training examples: 48634
+Train:
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2970]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    196]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3057]:	loss: 0.002	acc: 0.999	
+  y =     blond, male = 1  [n =    177]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2945]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    196]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3083]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    176]:	loss: 0.002	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3071]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    201]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2930]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 1  [n =    198]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3035]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    171]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3020]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    174]:	loss: 0.000	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2984]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    205]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3025]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    186]:	loss: 0.002	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3020]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    182]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2999]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    199]:	loss: 0.001	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3088]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    188]:	loss: 0.004	acc: 1.000	
+  y =     blond, male = 0  [n =   2949]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    175]:	loss: 0.000	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   1817]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =     98]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   1817]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    102]:	loss: 0.001	acc: 1.000	
+Epoch eval:
+Average acc: 1.000
+  y = not blond, male = 0  [n =  22930]:	acc = 1.000
+  y = not blond, male = 1  [n =   1437]:	acc = 1.000
+  y =     blond, male = 0  [n =  22880]:	acc = 1.000
+  y =     blond, male = 1  [n =   1387]:	acc = 1.000
+Worst-group acc: 1.000
+  y = not blond  [n =  24367]:	acc = 1.000
+  y =     blond  [n =  24267]:	acc = 1.000
+Validation:
+objective: 0.507
+loss_avg: 0.507
+acc_avg: 0.918
+  y = not blond, male = 0  [n =   8535]:	loss: 0.679	acc: 0.900	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.402	acc: 0.933	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.282	acc: 0.935	
+  y =     blond, male = 1  [n =    182]:	loss: 0.814	acc: 0.835	
+Epoch eval:
+Average acc: 0.918
+  y = not blond, male = 0  [n =   8535]:	acc = 0.900
+  y = not blond, male = 1  [n =   8276]:	acc = 0.933
+  y =     blond, male = 0  [n =   2874]:	acc = 0.935
+  y =     blond, male = 1  [n =    182]:	acc = 0.835
+Worst-group acc: 0.835
+  y = not blond  [n =  16811]:	acc = 0.916
+  y =     blond  [n =   3056]:	acc = 0.929
+Validation acc_wg: 0.835
+Epoch [43]:
+Number of training examples: 48634
+Train:
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3022]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    194]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   3009]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    175]:	loss: 0.000	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3023]:	loss: 0.002	acc: 0.999	
+  y = not blond, male = 1  [n =    176]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3002]:	loss: 0.004	acc: 0.999	
+  y =     blond, male = 1  [n =    199]:	loss: 0.000	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2962]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    174]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3082]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    182]:	loss: 0.003	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2979]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    213]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3022]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    186]:	loss: 0.000	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3041]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    189]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2999]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    171]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3099]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    174]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2963]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    164]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2971]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    186]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3032]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    211]:	loss: 0.000	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   1833]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    131]:	loss: 0.016	acc: 0.992	
+  y =     blond, male = 0  [n =   1771]:	loss: 0.004	acc: 0.999	
+  y =     blond, male = 1  [n =     99]:	loss: 0.001	acc: 1.000	
+Epoch eval:
+Average acc: 1.000
+  y = not blond, male = 0  [n =  22930]:	acc = 1.000
+  y = not blond, male = 1  [n =   1437]:	acc = 0.999
+  y =     blond, male = 0  [n =  22880]:	acc = 1.000
+  y =     blond, male = 1  [n =   1387]:	acc = 1.000
+Worst-group acc: 0.999
+  y = not blond  [n =  24367]:	acc = 1.000
+  y =     blond  [n =  24267]:	acc = 1.000
+Validation:
+objective: 0.517
+loss_avg: 0.517
+acc_avg: 0.918
+  y = not blond, male = 0  [n =   8535]:	loss: 0.786	acc: 0.886	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.325	acc: 0.943	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.236	acc: 0.948	
+  y =     blond, male = 1  [n =    182]:	loss: 1.017	acc: 0.797	
+Epoch eval:
+Average acc: 0.918
+  y = not blond, male = 0  [n =   8535]:	acc = 0.886
+  y = not blond, male = 1  [n =   8276]:	acc = 0.943
+  y =     blond, male = 0  [n =   2874]:	acc = 0.948
+  y =     blond, male = 1  [n =    182]:	acc = 0.797
+Worst-group acc: 0.797
+  y = not blond  [n =  16811]:	acc = 0.914
+  y =     blond  [n =   3056]:	acc = 0.939
+Validation acc_wg: 0.797
+Epoch [44]:
+Number of training examples: 48634
+Train:
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2996]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    203]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3023]:	loss: 0.002	acc: 0.999	
+  y =     blond, male = 1  [n =    178]:	loss: 0.003	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2992]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    204]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3032]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 1  [n =    172]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3029]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    171]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3018]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    182]:	loss: 0.000	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3074]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    166]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2992]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    168]:	loss: 0.001	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2971]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    207]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3047]:	loss: 0.002	acc: 0.999	
+  y =     blond, male = 1  [n =    175]:	loss: 0.001	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3036]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    177]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2975]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    212]:	loss: 0.003	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3024]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    192]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3006]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    178]:	loss: 0.001	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   1808]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    117]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   1787]:	loss: 0.001	acc: 0.999	
+  y =     blond, male = 1  [n =    122]:	loss: 0.001	acc: 1.000	
+Epoch eval:
+Average acc: 1.000
+  y = not blond, male = 0  [n =  22930]:	acc = 1.000
+  y = not blond, male = 1  [n =   1437]:	acc = 1.000
+  y =     blond, male = 0  [n =  22880]:	acc = 1.000
+  y =     blond, male = 1  [n =   1387]:	acc = 1.000
+Worst-group acc: 1.000
+  y = not blond  [n =  24367]:	acc = 1.000
+  y =     blond  [n =  24267]:	acc = 1.000
+Validation:
+objective: 0.448
+loss_avg: 0.448
+acc_avg: 0.924
+  y = not blond, male = 0  [n =   8535]:	loss: 0.604	acc: 0.907	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.321	acc: 0.945	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.317	acc: 0.924	
+  y =     blond, male = 1  [n =    182]:	loss: 0.969	acc: 0.808	
+Epoch eval:
+Average acc: 0.924
+  y = not blond, male = 0  [n =   8535]:	acc = 0.907
+  y = not blond, male = 1  [n =   8276]:	acc = 0.945
+  y =     blond, male = 0  [n =   2874]:	acc = 0.924
+  y =     blond, male = 1  [n =    182]:	acc = 0.808
+Worst-group acc: 0.808
+  y = not blond  [n =  16811]:	acc = 0.925
+  y =     blond  [n =   3056]:	acc = 0.918
+Validation acc_wg: 0.808
+Epoch [45]:
+Number of training examples: 48634
+Train:
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3080]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    178]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2955]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    187]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2964]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    178]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3064]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    194]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2976]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    187]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3044]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    193]:	loss: 0.002	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3048]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    187]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2981]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    184]:	loss: 0.007	acc: 0.995	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3010]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    190]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   3020]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    180]:	loss: 0.003	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2992]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    219]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3017]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    172]:	loss: 0.002	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3021]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    192]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3013]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 1  [n =    174]:	loss: 0.001	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   1839]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    106]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   1786]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    103]:	loss: 0.001	acc: 1.000	
+Epoch eval:
+Average acc: 1.000
+  y = not blond, male = 0  [n =  22930]:	acc = 1.000
+  y = not blond, male = 1  [n =   1437]:	acc = 1.000
+  y =     blond, male = 0  [n =  22880]:	acc = 1.000
+  y =     blond, male = 1  [n =   1387]:	acc = 0.999
+Worst-group acc: 0.999
+  y = not blond  [n =  24367]:	acc = 1.000
+  y =     blond  [n =  24267]:	acc = 1.000
+Validation:
+objective: 0.450
+loss_avg: 0.450
+acc_avg: 0.925
+  y = not blond, male = 0  [n =   8535]:	loss: 0.614	acc: 0.909	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.317	acc: 0.945	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.316	acc: 0.922	
+  y =     blond, male = 1  [n =    182]:	loss: 0.968	acc: 0.786	
+Epoch eval:
+Average acc: 0.925
+  y = not blond, male = 0  [n =   8535]:	acc = 0.909
+  y = not blond, male = 1  [n =   8276]:	acc = 0.945
+  y =     blond, male = 0  [n =   2874]:	acc = 0.922
+  y =     blond, male = 1  [n =    182]:	acc = 0.786
+Worst-group acc: 0.786
+  y = not blond  [n =  16811]:	acc = 0.927
+  y =     blond  [n =   3056]:	acc = 0.914
+Validation acc_wg: 0.786
+Epoch [46]:
+Number of training examples: 48634Adding 50 examples to the training data...
+Train:
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3098]:	loss: 0.002	acc: 0.999	
+  y = not blond, male = 1  [n =    200]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2941]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    161]:	loss: 0.001	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2970]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    207]:	loss: 0.007	acc: 0.995	
+  y =     blond, male = 0  [n =   3038]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    185]:	loss: 0.001	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3022]:	loss: 0.004	acc: 1.000	
+  y = not blond, male = 1  [n =    189]:	loss: 0.005	acc: 0.995	
+  y =     blond, male = 0  [n =   3013]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    176]:	loss: 0.009	acc: 0.994	
+objective: 0.004
+loss_avg: 0.004
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3028]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    213]:	loss: 0.068	acc: 0.995	
+  y =     blond, male = 0  [n =   2990]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    169]:	loss: 0.006	acc: 0.994	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3009]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    175]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3026]:	loss: 0.002	acc: 0.999	
+  y =     blond, male = 1  [n =    190]:	loss: 0.003	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3016]:	loss: 0.003	acc: 0.999	
+  y = not blond, male = 1  [n =    191]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2981]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    212]:	loss: 0.001	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3000]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    192]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3033]:	loss: 0.005	acc: 0.999	
+  y =     blond, male = 1  [n =    175]:	loss: 0.009	acc: 0.994	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   1810]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =     97]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   1858]:	loss: 0.002	acc: 0.999	
+  y =     blond, male = 1  [n =    119]:	loss: 0.002	acc: 1.000	
+Epoch eval:
+Average acc: 0.999
+  y = not blond, male = 0  [n =  22953]:	acc = 1.000
+  y = not blond, male = 1  [n =   1464]:	acc = 0.998
+  y =     blond, male = 0  [n =  22880]:	acc = 1.000
+  y =     blond, male = 1  [n =   1387]:	acc = 0.998
+Worst-group acc: 0.998
+  y = not blond  [n =  24417]:	acc = 1.000
+  y =     blond  [n =  24267]:	acc = 0.999
+Validation:
+objective: 0.498
+loss_avg: 0.498
+acc_avg: 0.921
+  y = not blond, male = 0  [n =   8535]:	loss: 0.642	acc: 0.905	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.414	acc: 0.935	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.302	acc: 0.932	
+  y =     blond, male = 1  [n =    182]:	loss: 0.706	acc: 0.830	
+Epoch eval:
+Average acc: 0.921
+  y = not blond, male = 0  [n =   8535]:	acc = 0.905
+  y = not blond, male = 1  [n =   8276]:	acc = 0.935
+  y =     blond, male = 0  [n =   2874]:	acc = 0.932
+  y =     blond, male = 1  [n =    182]:	acc = 0.830
+Worst-group acc: 0.830
+  y = not blond  [n =  16811]:	acc = 0.920
+  y =     blond  [n =   3056]:	acc = 0.926
+Validation acc_wg: 0.830
+Epoch [47]:
+Number of training examples: 48684
+Train:
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   2995]:	loss: 0.003	acc: 1.000	
+  y = not blond, male = 1  [n =    197]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3019]:	loss: 0.003	acc: 0.999	
+  y =     blond, male = 1  [n =    189]:	loss: 0.001	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3041]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    217]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2954]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    188]:	loss: 0.002	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2996]:	loss: 0.002	acc: 0.999	
+  y = not blond, male = 1  [n =    213]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3021]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    170]:	loss: 0.003	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3006]:	loss: 0.003	acc: 0.999	
+  y = not blond, male = 1  [n =    192]:	loss: 0.005	acc: 0.995	
+  y =     blond, male = 0  [n =   3029]:	loss: 0.004	acc: 0.999	
+  y =     blond, male = 1  [n =    173]:	loss: 0.003	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2990]:	loss: 0.005	acc: 0.999	
+  y = not blond, male = 1  [n =    173]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3046]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    191]:	loss: 0.002	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3012]:	loss: 0.003	acc: 0.999	
+  y = not blond, male = 1  [n =    168]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3043]:	loss: 0.004	acc: 0.999	
+  y =     blond, male = 1  [n =    177]:	loss: 0.000	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3063]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    171]:	loss: 0.027	acc: 0.988	
+  y =     blond, male = 0  [n =   2987]:	loss: 0.003	acc: 0.999	
+  y =     blond, male = 1  [n =    179]:	loss: 0.002	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   1850]:	loss: 0.003	acc: 1.000	
+  y = not blond, male = 1  [n =    133]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   1781]:	loss: 0.002	acc: 0.999	
+  y =     blond, male = 1  [n =    120]:	loss: 0.002	acc: 1.000	
+Epoch eval:
+Average acc: 0.999
+  y = not blond, male = 0  [n =  22953]:	acc = 0.999
+  y = not blond, male = 1  [n =   1464]:	acc = 0.998
+  y =     blond, male = 0  [n =  22880]:	acc = 0.999
+  y =     blond, male = 1  [n =   1387]:	acc = 1.000
+Worst-group acc: 0.998
+  y = not blond  [n =  24417]:	acc = 0.999
+  y =     blond  [n =  24267]:	acc = 0.999
+Validation:
+objective: 0.413
+loss_avg: 0.413
+acc_avg: 0.928
+  y = not blond, male = 0  [n =   8535]:	loss: 0.537	acc: 0.915	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.279	acc: 0.950	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.389	acc: 0.914	
+  y =     blond, male = 1  [n =    182]:	loss: 1.126	acc: 0.786	
+Epoch eval:
+Average acc: 0.928
+  y = not blond, male = 0  [n =   8535]:	acc = 0.915
+  y = not blond, male = 1  [n =   8276]:	acc = 0.950
+  y =     blond, male = 0  [n =   2874]:	acc = 0.914
+  y =     blond, male = 1  [n =    182]:	acc = 0.786
+Worst-group acc: 0.786
+  y = not blond  [n =  16811]:	acc = 0.932
+  y =     blond  [n =   3056]:	acc = 0.907
+Validation acc_wg: 0.786
+Epoch [48]:
+Number of training examples: 48684
+Train:
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3020]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    194]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2996]:	loss: 0.004	acc: 0.999	
+  y =     blond, male = 1  [n =    190]:	loss: 0.003	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2941]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    203]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 0  [n =   3079]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    177]:	loss: 0.002	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2965]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    188]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3036]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    211]:	loss: 0.002	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3051]:	loss: 0.003	acc: 1.000	
+  y = not blond, male = 1  [n =    200]:	loss: 0.005	acc: 0.995	
+  y =     blond, male = 0  [n =   3006]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    143]:	loss: 0.003	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2990]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    194]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3037]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    179]:	loss: 0.001	acc: 1.000	
+objective: 0.003
+loss_avg: 0.003
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   3078]:	loss: 0.003	acc: 0.999	
+  y = not blond, male = 1  [n =    177]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   2958]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 1  [n =    187]:	loss: 0.000	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3047]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    187]:	loss: 0.003	acc: 1.000	
+  y =     blond, male = 0  [n =   2979]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    187]:	loss: 0.000	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   1861]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    121]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   1789]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    113]:	loss: 0.001	acc: 1.000	
+Epoch eval:
+Average acc: 1.000
+  y = not blond, male = 0  [n =  22953]:	acc = 1.000
+  y = not blond, male = 1  [n =   1464]:	acc = 0.999
+  y =     blond, male = 0  [n =  22880]:	acc = 1.000
+  y =     blond, male = 1  [n =   1387]:	acc = 1.000
+Worst-group acc: 0.999
+  y = not blond  [n =  24417]:	acc = 1.000
+  y =     blond  [n =  24267]:	acc = 1.000
+Validation:
+objective: 0.475
+loss_avg: 0.475
+acc_avg: 0.924
+  y = not blond, male = 0  [n =   8535]:	loss: 0.617	acc: 0.910	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.361	acc: 0.942	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.354	acc: 0.922	
+  y =     blond, male = 1  [n =    182]:	loss: 0.933	acc: 0.824	
+Epoch eval:
+Average acc: 0.924
+  y = not blond, male = 0  [n =   8535]:	acc = 0.910
+  y = not blond, male = 1  [n =   8276]:	acc = 0.942
+  y =     blond, male = 0  [n =   2874]:	acc = 0.922
+  y =     blond, male = 1  [n =    182]:	acc = 0.824
+Worst-group acc: 0.824
+  y = not blond  [n =  16811]:	acc = 0.926
+  y =     blond  [n =   3056]:	acc = 0.916
+Validation acc_wg: 0.824
+Epoch [49]:
+Number of training examples: 48684
+Train:
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3014]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    209]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3002]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    175]:	loss: 0.003	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2983]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    203]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3036]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    178]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3114]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    192]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   2904]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    190]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3009]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    212]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3011]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    168]:	loss: 0.001	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2985]:	loss: 0.000	acc: 1.000	
+  y = not blond, male = 1  [n =    184]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   3030]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    201]:	loss: 0.002	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   2959]:	loss: 0.002	acc: 1.000	
+  y = not blond, male = 1  [n =    203]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3032]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    206]:	loss: 0.000	acc: 1.000	
+objective: 0.001
+loss_avg: 0.001
+acc_avg: 1.000
+  y = not blond, male = 0  [n =   3025]:	loss: 0.001	acc: 1.000	
+  y = not blond, male = 1  [n =    168]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 0  [n =   3044]:	loss: 0.002	acc: 1.000	
+  y =     blond, male = 1  [n =    163]:	loss: 0.001	acc: 1.000	
+objective: 0.002
+loss_avg: 0.002
+acc_avg: 0.999
+  y = not blond, male = 0  [n =   1864]:	loss: 0.004	acc: 0.999	
+  y = not blond, male = 1  [n =     93]:	loss: 0.000	acc: 1.000	
+  y =     blond, male = 0  [n =   1821]:	loss: 0.001	acc: 1.000	
+  y =     blond, male = 1  [n =    106]:	loss: 0.001	acc: 1.000	
+Epoch eval:
+Average acc: 1.000
+  y = not blond, male = 0  [n =  22953]:	acc = 1.000
+  y = not blond, male = 1  [n =   1464]:	acc = 1.000
+  y =     blond, male = 0  [n =  22880]:	acc = 1.000
+  y =     blond, male = 1  [n =   1387]:	acc = 1.000
+Worst-group acc: 1.000
+  y = not blond  [n =  24417]:	acc = 1.000
+  y =     blond  [n =  24267]:	acc = 1.000
+Validation:
+objective: 0.465
+loss_avg: 0.465
+acc_avg: 0.925
+  y = not blond, male = 0  [n =   8535]:	loss: 0.608	acc: 0.910	
+  y = not blond, male = 1  [n =   8276]:	loss: 0.348	acc: 0.944	
+  y =     blond, male = 0  [n =   2874]:	loss: 0.351	acc: 0.921	
+  y =     blond, male = 1  [n =    182]:	loss: 0.912	acc: 0.802	
+Epoch eval:
+Average acc: 0.925
+  y = not blond, male = 0  [n =   8535]:	acc = 0.910
+  y = not blond, male = 1  [n =   8276]:	acc = 0.944
+  y =     blond, male = 0  [n =   2874]:	acc = 0.921
+  y =     blond, male = 1  [n =    182]:	acc = 0.802
+Worst-group acc: 0.802
+  y = not blond  [n =  16811]:	acc = 0.926
+  y =     blond  [n =   3056]:	acc = 0.914
+Validation acc_wg: 0.802

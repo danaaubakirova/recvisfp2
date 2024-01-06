@@ -1,0 +1,337 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.12
+    cli_version: 0.15.0
+    framework: huggingface
+    huggingface_version: 4.36.2
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1704442527.346686
+    t:
+      1:
+      - 1
+      - 5
+      - 11
+      - 41
+      - 49
+      - 53
+      - 55
+      2:
+      - 1
+      - 5
+      - 11
+      - 41
+      - 49
+      - 53
+      - 55
+      3:
+      - 2
+      - 13
+      - 23
+      4: 3.10.12
+      5: 0.15.0
+      6: 4.36.2
+      8:
+      - 5
+dataset:
+  desc: null
+  value: waterbirds
+algorithm:
+  desc: null
+  value: groupDRO
+root_dir:
+  desc: null
+  value: data
+split_scheme:
+  desc: null
+  value: official
+dataset_kwargs:
+  desc: null
+  value: {}
+download:
+  desc: null
+  value: true
+frac:
+  desc: null
+  value: 1.0
+version:
+  desc: null
+  value: null
+unlabeled_split:
+  desc: null
+  value: null
+unlabeled_version:
+  desc: null
+  value: null
+use_unlabeled_y:
+  desc: null
+  value: false
+loader_kwargs:
+  desc: null
+  value:
+    num_workers: 4
+    pin_memory: true
+unlabeled_loader_kwargs:
+  desc: null
+  value:
+    num_workers: 8
+    pin_memory: true
+train_loader:
+  desc: null
+  value: standard
+uniform_over_groups:
+  desc: null
+  value: true
+distinct_groups:
+  desc: null
+  value: true
+n_groups_per_batch:
+  desc: null
+  value: 4
+unlabeled_n_groups_per_batch:
+  desc: null
+  value: null
+batch_size:
+  desc: null
+  value: 64
+unlabeled_batch_size:
+  desc: null
+  value: null
+eval_loader:
+  desc: null
+  value: standard
+gradient_accumulation_steps:
+  desc: null
+  value: 1
+subsample:
+  desc: null
+  value: true
+uniform_over_classes:
+  desc: null
+  value: false
+add_num:
+  desc: null
+  value: 10
+add_start:
+  desc: null
+  value: 140
+add_interval:
+  desc: null
+  value: 10
+uniform_after_subsample:
+  desc: null
+  value: false
+uniform_add:
+  desc: null
+  value: false
+subsample_alpha:
+  desc: null
+  value: 0.5
+subsample_ref:
+  desc: null
+  value: keep_in_class
+subsample_cap:
+  desc: null
+  value: -1
+subsample_cap_steps:
+  desc: null
+  value: []
+subsample_cap_milestones:
+  desc: null
+  value: []
+model:
+  desc: null
+  value: dino
+model_kwargs:
+  desc: null
+  value:
+    pretrained: true
+pretrained_model_path:
+  desc: null
+  value: null
+load_featurizer_only:
+  desc: null
+  value: false
+local_norm:
+  desc: null
+  value: none
+teacher_model_path:
+  desc: null
+  value: null
+transform:
+  desc: null
+  value: image_resize_and_center_crop
+additional_train_transform:
+  desc: null
+  value: weak
+target_resolution:
+  desc: null
+  value:
+  - 224
+  - 224
+resize_scale:
+  desc: null
+  value: 1.1428571428571428
+max_token_length:
+  desc: null
+  value: null
+randaugment_n:
+  desc: null
+  value: null
+transform_warmup_only:
+  desc: null
+  value: null
+loss_function:
+  desc: null
+  value: cross_entropy
+loss_kwargs:
+  desc: null
+  value: {}
+groupby_fields:
+  desc: null
+  value:
+  - background
+  - y
+group_dro_step_size:
+  desc: null
+  value: 0.01
+algo_log_metric:
+  desc: null
+  value: accuracy
+process_pseudolabels_function:
+  desc: null
+  value: null
+val_metric:
+  desc: null
+  value: acc_wg
+val_metric_decreasing:
+  desc: null
+  value: false
+n_epochs:
+  desc: null
+  value: 300
+optimizer:
+  desc: null
+  value: SGD
+lr:
+  desc: null
+  value: 0.01
+weight_decay:
+  desc: null
+  value: 0.01
+max_grad_norm:
+  desc: null
+  value: null
+optimizer_kwargs:
+  desc: null
+  value:
+    momentum: 0.9
+reinit_optim:
+  desc: null
+  value: null
+scheduler:
+  desc: null
+  value: MultiStepLR
+scheduler_kwargs:
+  desc: null
+  value:
+    verbose: true
+    gamma: 0.1
+scheduler_metric_split:
+  desc: null
+  value: val
+scheduler_metric_name:
+  desc: null
+  value: null
+scheduler_multistep_milestones:
+  desc: null
+  value:
+  - 140
+scheduler_multistep_gamma:
+  desc: null
+  value: 0.01
+process_outputs_function:
+  desc: null
+  value: multiclass_logits_to_pred
+evaluate_all_splits:
+  desc: null
+  value: true
+eval_splits:
+  desc: null
+  value: []
+eval_only:
+  desc: null
+  value: false
+eval_epoch:
+  desc: null
+  value: null
+device:
+  desc: null
+  value: cuda
+seed:
+  desc: null
+  value: 0
+log_dir:
+  desc: null
+  value: ./logs/waterbirds_groupDRO_lr1e-02_wd1e-02_uniform_subsample_add10-from140-every10_weak_bs64_seed0
+log_every:
+  desc: null
+  value: 50
+save_step:
+  desc: null
+  value: null
+save_best:
+  desc: null
+  value: true
+save_last:
+  desc: null
+  value: true
+save_pred:
+  desc: null
+  value: true
+no_group_logging:
+  desc: null
+  value: false
+progress_bar:
+  desc: null
+  value: false
+resume:
+  desc: null
+  value: false
+use_wandb:
+  desc: null
+  value: true
+wandb_api_key_path:
+  desc: null
+  value: null
+wandb_kwargs:
+  desc: null
+  value: {}
+use_data_parallel:
+  desc: null
+  value: false
+logger:
+  desc: null
+  value: <utils.Logger object at 0x7f0a9be1d7e0>
+add_milestones:
+  desc: null
+  value:
+  - 140
+  - 150
+  - 160
+  - 170
+  - 180
+  - 190
+  - 200
+  - 210
+  - 220
+  - 230
+  - 240
+  - 250
+  - 260
+  - 270
+  - 280
+  - 290
