@@ -1,6 +1,6 @@
 # recvisfp2
 
-Authors: 
+Authors: Dana Aubakirova, Junior Cedric Tonga 
 
 This project is based on the official implementation of the paper "Robust Learning with Progressive Data Expansion Against Spurious Correlation":
 
