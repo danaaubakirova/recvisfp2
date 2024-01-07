@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import sys
 from models.layers import Identity, DinoVisionTransformerClassifier
-from undupervised import imagenet_mae_base_pretrained, imagenet_resnet50_dino
+from models.unsupervised import imagenet_mae_base_pretrained, imagenet_resnet50_dino
 from copy import deepcopy
 
 def initialize_model(config, d_out, is_featurizer=False):
@@ -65,6 +65,18 @@ def initialize_model(config, d_out, is_featurizer=False):
         else:
             # Initialize DINO model with final classification layer for the specified output dimension
             model = DinoVisionTransformerClassifier(d_out=d_out, model_name = 'dinov2_vits14')
+
+    elif config.model== 'mae':
+        if featurize:
+            # Initialize DINO model without final classification layer
+            featurizer = imagenet_mae_base_pretrained(d_out = None)
+            # Create a linear classifier with the output dimension of the featurizer
+            classifier = nn.Linear(featurizer.fc.in_features, d_out)
+            model = (featurizer, classifier)
+        else:
+            # Initialize DINO model with final classification layer for the specified output dimension
+            model = imagenet_mae_base_pretrained(d_out)
+
             
     elif 'bert' in config.model:
         if featurize:

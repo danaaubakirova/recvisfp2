@@ -3,6 +3,10 @@ import torch.nn as nn
 import sys
 from models.layers import Identity
 from copy import deepcopy
+import types
+import sys
+import models.models_vit as mae
+
 
 def _replace_fc(model, output_dim):
     d = model.fc.in_features
@@ -32,7 +36,7 @@ def imagenet_resnet50_dino(output_dim):
 
 def load_mae_model(model, checkpoint_path, global_pool=True):
     from timm.models.layers import trunc_normal_
-    from mae.util.pos_embed import interpolate_pos_embed
+    from models.util.pos_embed import interpolate_pos_embed
 
     checkpoint = torch.load(checkpoint_path, map_location='cpu')
         
@@ -64,5 +68,5 @@ def load_mae_model(model, checkpoint_path, global_pool=True):
 
 def imagenet_mae_base_pretrained(output_dim):
     model = mae.vit_base_patch16(num_classes=output_dim)
-    load_mae_model(model, '/scratch/nvg7279/mae_models/mae_pretrain_vit_base.pth')
+    load_mae_model(model, '/kaggle/input/mae-checkpoint/mae_pretrain_vit_base.pth')
     return _vit_replace_fc(model, output_dim)
