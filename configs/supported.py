@@ -44,7 +44,7 @@ transforms = ['bert', 'image_base', 'image_resize', 'image_resize_and_center_cro
 additional_transforms = ['randaugment', 'weak']
 
 # See models/initializer.py
-models = ['resnet50', 'bert-base-uncased', 'distilbert-base-uncased', 'dino', 'dinov2']
+models = ['resnet50', 'bert-base-uncased', 'distilbert-base-uncased', 'dino', 'dinov2','mae']
 
 # See optimizer.py
 optimizers = ['SGD', 'Adam', 'AdamW']
